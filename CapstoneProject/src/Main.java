@@ -12,7 +12,7 @@ public class Main extends JPanel {
 	
 	public static void main(String[] args) {
 		JFrame w = new JFrame("Window");
-		w.setBounds(100, 100, 640, 480);
+		w.setBounds(100, 100, 800, 600);
 		w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Main panel = new Main();
 		w.add(panel);
