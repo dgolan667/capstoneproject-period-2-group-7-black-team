@@ -1,23 +1,25 @@
 import java.awt.Color;
-import java.awt.Component;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-public class Main {
-
+public class Main extends JPanel {
+	
+	public Main () {
+		super();
+		setBackground(Color.CYAN);
+	}
+	
 	public static void main(String[] args) {
-
-		JFrame window = new JFrame("Flappy Bird");
-		window.setBounds(100, 100, 600, 400);
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            
-		/*
-		Window panel = new Window();
-		panel.setBackground(Color.CYAN);  // the background color is cyan
-		window.add(panel);
-        */
+		JFrame w = new JFrame("Window");
+		w.setBounds(100, 100, 640, 480);
+		w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Main panel = new Main();
+		w.add(panel);
+		w.setResizable(true);
+		w.setVisible(true);
 		
-		window.setVisible(true);
+		
 
 	}
 
