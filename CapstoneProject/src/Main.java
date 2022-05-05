@@ -7,13 +7,20 @@ import javax.swing.JPanel;
 
 public class Main extends JPanel {
 	// FIELDS
+	
+	public static final int DRAWING_WIDTH = 800;
+	public static final int DRAWING_HEIGHT = 600;
+
+	
     private Bird bird;
+    private PipeMovement Pipe;
     
     // CONSTRUCTORS
 	public Main () {
 		super();
-		setBackground(Color.CYAN);
 		bird = new Bird(380,0);
+		Pipe = new PipeMovement("Pipe.png",100,200,200,25);
+		setBackground(Color.CYAN);
 		setBackground(Color.CYAN);
 	}
 	
@@ -24,18 +31,19 @@ public class Main extends JPanel {
 
 		int width = getWidth();
 		int height = getHeight();
-
+		
 		//double ratioX = (double)width/DRAWING_WIDTH;
 		//double ratioY = (double)height/DRAWING_HEIGHT;
 
 		//((Graphics2D)g).scale(ratioX,ratioY);
-
 		
 		
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 580, 800, 20);
 		
 		bird.draw(g,this);
+		
+		Pipe.draw(g, this);
 
 	}
 	public static void main(String[] args) {
