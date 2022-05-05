@@ -12,6 +12,10 @@ public class Bird {
 	private Image image;
 	
 	// CONSTRUCTORS
+	public Bird(int x, int y) {
+		this("flappybird.png", x, y, 40, 50);
+	}
+	
     public Bird() {
     	x = windowWidth/2;
     	y = windowHeight/2;
@@ -19,7 +23,7 @@ public class Bird {
     	height = windowHeight/80;
     }
     
-	public Bird(String filename, int x, int y, int w, int h) {
+    public Bird(String filename, int x, int y, int w, int h) {
 		this((new ImageIcon(filename)).getImage(), x, y, w, h);
 	}
 
@@ -41,6 +45,7 @@ public class Bird {
 		x = x+5;
 	}
 	
+
 
 	// METHODS
 	public void draw(Graphics g, ImageObserver io) {
