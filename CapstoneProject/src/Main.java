@@ -12,7 +12,6 @@ public class Main extends JPanel {
     // CONSTRUCTORS
 	public Main () {
 		super();
-		setBackground(Color.CYAN);
 		bird = new Bird(380,0);
 		setBackground(Color.CYAN);
 	}
@@ -36,8 +35,8 @@ public class Main extends JPanel {
 		g.fillRect(0, 580, 800, 20);
 		
 		bird.draw(g,this);
-
 	}
+	
 	public static void main(String[] args) {
 		JFrame w = new JFrame("Window");
 		w.setBounds(50, 50, 800, 600);
