@@ -14,14 +14,17 @@ public class Main extends JPanel {
 	
     private Bird bird;
     private PipeMovement Pipe;
+    private Obstacle Fire; 
     
     // CONSTRUCTORS
 	public Main () {
 		super();
 		bird = new Bird(380,0);
-		Pipe = new PipeMovement("Pipe.png",100,200,200,25);
-		setBackground(Color.CYAN);
-		setBackground(Color.CYAN);
+		Pipe = new PipeMovement("Pipe.png",200,415,100,250);
+		Fire = new Obstacle("obstacles.png",400,445,200,250);
+		Color LBLUE= new Color(102,178,255); 
+		setBackground(LBLUE); 
+		
 	}
 	
 	// METHODS
@@ -30,20 +33,18 @@ public class Main extends JPanel {
 		super.paintComponent(g);  // Call JPanel's paintComponent method to paint the background
 
 		int width = getWidth();
-		int height = getHeight();
+		int height = getHeight(); 
 		
-		//double ratioX = (double)width/DRAWING_WIDTH;
-		//double ratioY = (double)height/DRAWING_HEIGHT;
+		double ratioX = (double)width/DRAWING_WIDTH;
+		double ratioY = (double)height/DRAWING_HEIGHT;
 
-		//((Graphics2D)g).scale(ratioX,ratioY);
+		((Graphics2D)g).scale(ratioX,ratioY);
 		
-		
-		g.setColor(Color.BLACK);
-		g.fillRect(0, 580, 800, 20);
 		
 		bird.draw(g,this);
-		
 		Pipe.draw(g, this);
+		Fire.draw(g,this);
+		
 
 	}
 	public static void main(String[] args) {
@@ -52,7 +53,7 @@ public class Main extends JPanel {
 		w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Main panel = new Main();
 		w.add(panel);
-		w.setResizable(false);
+		w.setResizable(true);
 		w.setVisible(true);
 	}
 }
