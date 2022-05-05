@@ -32,6 +32,19 @@ public class Bird {
 		this.x = x;
 		this.y = y;
 	}
+	
+	public void jump() {
+		int yVelocity = -9;
+		x -= 4;
+		y += yVelocity;
+		yVelocity += 2;
+	}
+	
+	public void fly() {
+		int x = 0;
+		x = x+5;
+	}
+	
 
 
 	// METHODS
