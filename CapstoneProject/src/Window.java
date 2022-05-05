@@ -1,6 +1,12 @@
 import java.awt.Color;
 
-public class Window {
+import javax.swing.JFrame;
 
-
+public class Window extends Bird {
+	private Bird bird;
+	
+	public Window () {
+		super();
+		bird = new Bird();
+	}
 }
