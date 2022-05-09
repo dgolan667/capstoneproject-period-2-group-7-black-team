@@ -12,9 +12,9 @@ public class Bird {
 	private Image image;
 	
 	// CONSTRUCTORS
-	public Bird(int x, int y) {
-		this("flappybird.png", x, y, 40, 50);
-	}
+//	public Bird(int x, int y) {
+//		this("flappybird.png", x, y, 40, 50);
+//	}
 	
     public Bird() {
     	x = windowWidth/2;
@@ -23,15 +23,15 @@ public class Bird {
     	height = windowHeight/80;
     }
     
-    public Bird(String filename, int x, int y, int w, int h) {
-		this((new ImageIcon(filename)).getImage(), x, y, w, h);
-	}
-
-	public Bird(Image img, int x, int y, int w, int h) {
-		image = img;
-		this.x = x;
-		this.y = y;
-	}
+//    public Bird(String filename, int x, int y, int w, int h) {
+//		this((new ImageIcon(filename)).getImage(), x, y, w, h);
+//	}
+//
+//	public Bird(Image img, int x, int y, int w, int h) {
+//		image = img;
+//		this.x = x;
+//		this.y = y;
+//	}
 	
 	public void jump() {
 		int yVelocity = -9;
@@ -48,7 +48,7 @@ public class Bird {
 
 
 	// METHODS
-	public void draw(Graphics g, ImageObserver io) {
-		g.drawImage(image, x, y, width, height, io);
-	}
+//	public void draw(Graphics g, ImageObserver io) {
+//		g.drawImage(image, x, y, width, height, io);
+//	}
 }

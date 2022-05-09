@@ -2,7 +2,7 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
-public class Flappybird extends Bird{
+public class Flappybird extends Sprite{
 	private int x,y;
 	private int width, height;
 	private Image image;

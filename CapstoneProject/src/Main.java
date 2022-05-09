@@ -12,14 +12,14 @@ public class Main extends JPanel {
 	public static final int DRAWING_HEIGHT = 600;
 
 	
-    private Bird Flappybird;
+    private Sprite Flappybird;
     private Sprite Pipe;
     private Sprite Fire; 
     
     // CONSTRUCTORS
 	public Main () {
 		super();
-		Flappybird = new Bird(380,0);
+		Flappybird = new Sprite("bird.png",100,415,60,60);
 		Pipe = new Sprite("Pipe.png",200,415,100,250);
 		Fire = new Sprite("obstacles.png",400,443,200,250);
 		Color LBLUE= new Color(102,178,255); 
