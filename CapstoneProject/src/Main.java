@@ -5,21 +5,27 @@ import java.awt.Graphics2D;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Main extends JPanel {
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+
+public class Main extends JPanel implements KeyListener {
 	// FIELDS
 	
 	public static final int DRAWING_WIDTH = 800;
 	public static final int DRAWING_HEIGHT = 600;
 
 	
-    private Sprite Flappybird;
+    private Bird Flappybird;
+    //private Sprite Flappybird;
     private Sprite Pipe;
     private Sprite Fire; 
     
     // CONSTRUCTORS
 	public Main () {
 		super();
-		Flappybird = new Sprite("bird.png",100,415,60,60);
+		Flappybird = new Bird(100,415);
 		Pipe = new Sprite("Pipe.png",200,415,100,250);
 		Fire = new Sprite("obstacles.png",400,443,200,250);
 		Color LBLUE= new Color(102,178,255); 
@@ -47,6 +53,28 @@ public class Main extends JPanel {
 		
 
 	}
+	
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getKeyCode() == KeyEvent.VK_UP) {
+			Flappybird.jump();
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	public static void main(String[] args) {
 		JFrame w = new JFrame("Window");
 		w.setBounds(50, 50, 800, 600);
@@ -55,5 +83,23 @@ public class Main extends JPanel {
 		w.add(panel);
 		w.setResizable(true);
 		w.setVisible(true);
+		
 	}
+	public void run() {
+		while(true) {
+			// MAKE A CHANGE
+			Bird.act();
+
+			// SHOW THE CHANGE
+			repaint();
+
+			// WAIT
+			try {
+				Thread.sleep(17);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	
+	
 }
