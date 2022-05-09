@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,6 +20,7 @@ public class Main extends JPanel implements KeyListener {
 	
     private Bird Flappybird;
     //private Sprite Flappybird;
+    private Flappybird bird;
     private Sprite Pipe;
     private Sprite Fire; 
     
@@ -26,10 +28,13 @@ public class Main extends JPanel implements KeyListener {
 	public Main () {
 		super();
 		Flappybird = new Bird(100,415);
+		bird = new Flappybird(100,250);
 		Pipe = new Sprite("Pipe.png",200,415,100,250);
 		Fire = new Sprite("obstacles.png",400,443,200,250);
 		Color LBLUE= new Color(102,178,255); 
 		setBackground(LBLUE); 
+		
+		
 		
 	}
 	
@@ -47,7 +52,7 @@ public class Main extends JPanel implements KeyListener {
 		((Graphics2D)g).scale(ratioX,ratioY);
 	
 		
-		Flappybird.draw(g,this);
+		bird.draw(g,this);
 		Pipe.draw(g, this);
 		Fire.draw(g,this);
 		
@@ -73,6 +78,12 @@ public class Main extends JPanel implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void keyPressed(KeyEvent e) {
+		if (e.getKeyCode() == KeyEvent.VK_UP) {
+			bird.jump();	
+		}
 	}
 	
 	public static void main(String[] args) {

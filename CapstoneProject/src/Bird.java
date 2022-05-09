@@ -14,7 +14,7 @@ public class Bird extends Sprite{
 	private int width, height;
 	private Image image;
 	
-	// CONSTRUCTORS
+	// CONSTRUCTORS (since we added a sprite class, we don't need these methods/constructor 
 //	public Bird(int x, int y) {
 //		this("flappybird.png", x, y, 40, 50);
 //	}
