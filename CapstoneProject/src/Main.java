@@ -12,16 +12,16 @@ public class Main extends JPanel {
 	public static final int DRAWING_HEIGHT = 600;
 
 	
-    private Bird bird;
-    private PipeMovement Pipe;
-    private Obstacle Fire; 
+    private Bird Flappybird;
+    private Sprite Pipe;
+    private Sprite Fire; 
     
     // CONSTRUCTORS
 	public Main () {
 		super();
-		bird = new Bird(380,0);
-		Pipe = new PipeMovement("Pipe.png",200,415,100,250);
-		Fire = new Obstacle("obstacles.png",400,443,200,250);
+		Flappybird = new Bird(380,0);
+		Pipe = new Sprite("Pipe.png",200,415,100,250);
+		Fire = new Sprite("obstacles.png",400,443,200,250);
 		Color LBLUE= new Color(102,178,255); 
 		setBackground(LBLUE); 
 		
@@ -41,7 +41,7 @@ public class Main extends JPanel {
 		((Graphics2D)g).scale(ratioX,ratioY);
 	
 		
-		bird.draw(g,this);
+		Flappybird.draw(g,this);
 		Pipe.draw(g, this);
 		Fire.draw(g,this);
 		

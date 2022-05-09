@@ -4,7 +4,7 @@ import java.awt.image.ImageObserver;
 
 import javax.swing.ImageIcon;
 
-public class Fire extends Obstacle{
+public class Fire extends Sprite{
 
 	private int x,y;
 	private int width, height;

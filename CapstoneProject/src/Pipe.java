@@ -3,7 +3,7 @@ import java.awt.image.ImageObserver;
 
 import javax.swing.ImageIcon;
 
-public class Pipe extends PipeMovement{
+public class Pipe extends Sprite{
 
 	private int x,y;
 	private int width, height;
