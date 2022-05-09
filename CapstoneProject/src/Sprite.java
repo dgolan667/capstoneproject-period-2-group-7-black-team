@@ -24,6 +24,7 @@ public class Sprite {
 		
 	}
 	
+	
 	public void draw(Graphics g, ImageObserver io) {
 		g.drawImage(image,x,y,width,height,io);
 	}
