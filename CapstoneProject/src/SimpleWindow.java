@@ -2,11 +2,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.image.ImageObserver;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Main extends JPanel {
+public class SimpleWindow extends JPanel implements KeyListener{
 	// FIELDS
 	
 	public static final int DRAWING_WIDTH = 800;
@@ -18,7 +20,7 @@ public class Main extends JPanel {
     private Sprite Fire; 
     
     // CONSTRUCTORS
-	public Main () {
+	public SimpleWindow () {
 		super();
 		bird = new Flappybird(100,250);
 		Pipe = new Sprite("Pipe.png",200,415,100,250);
@@ -48,13 +50,23 @@ public class Main extends JPanel {
 		Pipe.draw(g, this);
 		Fire.draw(g,this);
 		
-
+		
 	}
 	
-	
-	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			bird.jump();	
+	public void run() {
+		while(true) {
+			// MAKE A CHANGE
+			bird.act();
+
+			// SHOW THE CHANGE
+			repaint();
+
+			// WAIT
+			try {
+				Thread.sleep(17);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -62,9 +74,40 @@ public class Main extends JPanel {
 		JFrame w = new JFrame("Window");
 		w.setBounds(50, 50, 800, 600);
 		w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Main panel = new Main();
+		SimpleWindow panel = new SimpleWindow();
 		w.add(panel);
 		w.setResizable(true);
 		w.setVisible(true);
+		panel.run(); 
 	}
+	
+	
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		if (e.getKeyCode() == KeyEvent.VK_UP) {
+			bird.jump();	
+		} else if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+			// MAKE A CHANGE
+			bird.act();
+
+			// SHOW THE CHANGE
+			repaint();
+		}
+			
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

@@ -32,4 +32,11 @@ public class Flappybird extends Sprite{
 		int x = 0;
 		x = x+5;
 	}
+	
+	public void act() {
+		accelerate(0,0.2);  // gravity
+		super.act();  // move mario based on his velocities
+	}
+	
+	
 }
