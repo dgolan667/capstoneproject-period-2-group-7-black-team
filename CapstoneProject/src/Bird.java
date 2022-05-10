@@ -45,6 +45,8 @@ public class Bird extends Sprite{
 	
 	public void jump() {
 		setYVel(5);
+		accelerate(0,0.2);
+		super.act();
 
 	}
 	

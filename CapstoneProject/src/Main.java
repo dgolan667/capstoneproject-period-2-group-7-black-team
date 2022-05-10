@@ -65,21 +65,14 @@ public class Main extends JPanel implements KeyListener {
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getKeyCode() == KeyEvent.VK_UP) {
-			Flappybird.jump();
-		}
-	}
-
+	
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 	
+	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			bird.jump();	
@@ -99,7 +92,7 @@ public class Main extends JPanel implements KeyListener {
 	public void run() {
 		while(true) {
 			// MAKE A CHANGE
-			Bird.act();
+			Flappybird.act();
 
 			// SHOW THE CHANGE
 			repaint();
@@ -112,5 +105,13 @@ public class Main extends JPanel implements KeyListener {
 			}
 		}
 	
+	}
+	public void checkBird() {
+		int x = Flappybird.getX() + Flappybird.getWidth()/2;
+		int y = Flappybird.getY() + Flappybird.getHeight()/2;
+		if (x < 0 || x > DRAWING_WIDTH || y < 0 || y > DRAWING_HEIGHT)
+			Flappybird= new Bird(380,0);
+	}
+
 	
 }
