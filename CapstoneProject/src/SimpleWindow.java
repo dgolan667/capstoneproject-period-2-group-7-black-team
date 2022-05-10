@@ -27,9 +27,6 @@ public class SimpleWindow extends JPanel implements KeyListener{
 		Fire = new Sprite("obstacles.png",400,443,200,250);
 		Color LBLUE= new Color(102,178,255); 
 		setBackground(LBLUE); 
-		
-		
-		
 	}
 	
 	// METHODS
@@ -53,22 +50,30 @@ public class SimpleWindow extends JPanel implements KeyListener{
 		
 	}
 	
-//	public void run() {
-//		while(true) {
-//			// MAKE A CHANGE
-//			bird.act();
-//
-//			// SHOW THE CHANGE
-//			repaint();
-//
-//			// WAIT
-//			try {
-//				Thread.sleep(17);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//	}
+    public void run() {
+		while(true) {
+			// MAKE A CHANGE
+			bird.act();
+
+			// SHOW THE CHANGE
+			repaint();
+
+			// WAIT
+			try {
+				Thread.sleep(17);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+    }
+
+	/*
+	public void checkBird() {
+		int x = bird.getX() + bird.getWidth()/2;
+		int y = bird.getY() + bird.getHeight()/2;
+		if (x < 0 || x > DRAWING_WIDTH || y < 0 || y > DRAWING_HEIGHT)
+			bird = new Flappybird(100,250);
+    */
 	
 	public static void main(String[] args) {
 		JFrame w = new JFrame("Window");
@@ -78,42 +83,6 @@ public class SimpleWindow extends JPanel implements KeyListener{
 		w.add(panel);
 		w.setResizable(true);
 		w.setVisible(true);
-		//panel.run(); 
+		panel.run(); 
 	}
-	
-	
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			bird.fly();	
-		} else if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-			
-			bird.act();
-			
-			repaint();
-		}
-			
-	}
-	
-	public void checkBird() {
-		int x = bird.getX() + bird.getWidth()/2;
-		int y = bird.getY() + bird.getHeight()/2;
-		if (x < 0 || x > DRAWING_WIDTH || y < 0 || y > DRAWING_HEIGHT)
-			bird = new Flappybird(100,250);
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 }

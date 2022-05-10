@@ -3,8 +3,8 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class Flappybird extends Sprite{
-//	private int x,y;
-//	private int width, height;
+    private int x,y;
+	private int width, height;
 	private Image image;
 //	
 	public Flappybird(int x, int y) {
@@ -28,13 +28,18 @@ public class Flappybird extends Sprite{
 //		yVelocity += 2;
 //	}
 	
+	/*
 	public void fly() {
 		setYVel(5);
 	}
+	*/
 	
-	public void act(Sprite Pipe) {
-		accelerate(0,0.2);  // gravity
-		super.act();  // move mario based on his velocities
+	public void act(Sprite Bird) {
+		//accelerate(0, 0.2); 
+		int y = getY();
+		if (y < 600) {
+			super.act();  
+		}
 	}
 	
 	

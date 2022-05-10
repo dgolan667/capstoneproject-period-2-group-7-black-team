@@ -10,9 +10,7 @@ public class Sprite {
 	private int width, height;
 	private Image image;
 	
-	private double xVel, yVel;
-	
-	private double friction = .9;
+	private double yVel, gravity;
 	
 	
 	public Sprite(String filename, int x, int y, int w, int h) {
@@ -25,8 +23,6 @@ public class Sprite {
 		this.y = y;
 		width = w;
 		height = h;
-	
-		xVel = 0;
 		yVel = 0;
 	}
 	
@@ -67,28 +63,25 @@ public class Sprite {
 	}
 	
 	public void act() {
-		this.x += xVel;
-		this.y += yVel;
-		
-		xVel *= friction;
+		if (y < 600) {
+			this.y += yVel;
+			yVel = 5;
+		}
 	}
-	
-	public void undoAct() {
-		this.x -= xVel;
-		this.y -= yVel;
-	}
-	
-	public void setXVel(int x) {
-		this.xVel = x;
-	}
-	
+
+	/*
 	public void setYVel(int y) {
 		this.yVel = y;
 	}
+	*/
 	
+	public void jump() {
+		yVel -= 5;
+	}
+	
+	/*
 	public void accelerate(double x, double y) {
-		this.xVel += x;
 		this.yVel += y;
 	}
-
+	*/
 }
