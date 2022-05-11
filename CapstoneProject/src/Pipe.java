@@ -1,25 +1,37 @@
-import java.awt.Image;
-import java.awt.image.ImageObserver;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
-
-public class Pipe extends Sprite{
-
-	private int x,y;
-	private int width, height;
-	private Image image;
+public class Pipe {
+	// FIELDS
+	private int x, y1, y2, w;
+	private double h1, h2;
+	private int gap = 180;
+	private ArrayList <Pipe> pipes;
 	
-	public Pipe(int x, int y) {
-		this("Pipe.png",x,y,40,50);
+	// CONSTRUCTORS
+	public Pipe (double height) {
+		x = 400;
+		y1 = 0;
+		h1 = height;
+		y2 = (int)(h1 + gap);
+		h2 = 600 - h1 - gap;
+		w = 50;
 	}
-
-	public Pipe(String filename, int x, int y, int w, int h) {
-		
-		this((new ImageIcon(filename)).getImage(),x,y,w,h);
+	
+	// METHODS
+	public void drawPipe (Graphics g) {
+		g.setColor(Color.BLUE);
+		g.fillRect(x, y1, w, (int)h1);
+		g.fillRect(x, y2, w, (int)h2);
 	}
-
-	public Pipe(Image img, int x, int y, int w, int h) {
-		
-		super(img, x, y, w, h);
-	}	
+	
+	public void repaint (boolean on) {
+		while (on) {
+			x += 5;
+			Pipe aPipe = new Pipe(Math.random()* 210);
+			pipes.add(aPipe);	
+		}
+	}
 }
