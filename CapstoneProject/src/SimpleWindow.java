@@ -35,6 +35,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		setBackground(LBLUE); 
 	}
 	
+
 	// METHODS
 	public void paintComponent(Graphics g)
 	{
@@ -57,6 +58,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
     public void run() {
 		while(true) {
 			bird.act(platform);
+		
 			repaint();
 			try {
 				Thread.sleep(17);
