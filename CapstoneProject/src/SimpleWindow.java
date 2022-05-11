@@ -1,9 +1,11 @@
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,6 +17,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 
     private Flappybird bird;
     private Pipe pipe;
+    private ArrayList<Pipe> pipes;
     private Sprite platform; 
     private Sprite Fire; 
     
@@ -23,7 +26,8 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		super();
 		bird = new Flappybird(100,250);
 		//Pipe = new Sprite("Pipe.png",200,415,100,250);
-		pipe = new Pipe(40);
+	    pipe = new Pipe(210);
+		//pipes = new ArrayList<Pipe>();
 		
 		platform = new Sprite("Pipe.png",70,515,100,120);
 		Fire = new Sprite("obstacles.png",400,443,200,250);
@@ -47,7 +51,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		bird.draw(g,this);
 		platform.draw(g,this);
 		Fire.draw(g,this);
-		pipe.drawPipe(g, pipe);
+		pipe.drawPipe(g);
 	}
 	
     public void run() {
@@ -69,10 +73,13 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			bird.move();
 		}
     }
-		
+	
+    /*
     public void actionPerformed(ActionEvent e) {
     	pipe.draw(getGraphics());
     }
+    */
+    
 	/*
 	public void checkBird() {
 		int x = bird.getX() + bird.getWidth()/2;
