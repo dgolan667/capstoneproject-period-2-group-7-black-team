@@ -3,10 +3,9 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class Flappybird extends Sprite{
-//	private int x,y;
-//	private int width, height;
-	private Image image;
-//	
+	//private int x, y;
+	private boolean onSurface;
+	
 	public Flappybird(int x, int y) {
 		this("bird.png",x,y,60,60);
 	}
@@ -21,21 +20,28 @@ public class Flappybird extends Sprite{
 		super(img, x, y, w, h);
 	}
 	
-//	public void jump() {
-//		int yVelocity = -9;
-//		x -= 4;
-//		y += yVelocity;
-//		yVelocity += 2;
-//	}
+	
 	
 	public void fly() {
-		setYVel(5);
+		
+		accelerate(0, -5);		
+
 	}
 	
-	public void act(Sprite Pipe) {
+	public void move () {
+		int x = 0;
+		x += 10;
+		super.setXVel(x);
+	}
+	
+	public void act(Sprite platform) {
 		accelerate(0,0.2);  // gravity
 		super.act();  // move mario based on his velocities
+		
+		if (platform.isPointInside(getX(), getY()+getHeight())) {  // did mario hit the platform?
+			setY(platform.getY()-getHeight());  // put mario on top of the platform
+			setYVel(0);  // stop him from falling
+		}
 	}
-	
 	
 }
