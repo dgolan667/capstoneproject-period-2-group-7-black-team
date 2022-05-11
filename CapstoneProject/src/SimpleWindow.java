@@ -54,25 +54,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		pipe.drawPipe(g);
 	}
 	
-    public void run() {
-		while(true) {
-			bird.act(platform);
-			repaint();
-			try {
-				Thread.sleep(17);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-    }
     
-    public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			bird.jump();
-		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			bird.move();
-		}
-    }
 	
     /*
     public void actionPerformed(ActionEvent e) {
@@ -88,17 +70,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			bird = new Flappybird(100,250);
     */
 	
-	public static void main(String[] args) {
-		JFrame w = new JFrame("Window");
-		w.setBounds(50, 50, 800, 600);
-		w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		SimpleWindow panel = new SimpleWindow();
-		w.addKeyListener(panel);
-		w.add(panel);
-		w.setResizable(true);
-		w.setVisible(true);
-		panel.run(); 
-	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
@@ -124,16 +95,18 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		JFrame w = new JFrame("Window");
 		w.setBounds(50, 50, 800, 600);
 		w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Main panel = new Main();
+		SimpleWindow panel = new SimpleWindow();
+		w.addKeyListener(panel);
 		w.add(panel);
 		w.setResizable(true);
 		w.setVisible(true);
-		
+		panel.run(); 
 	}
+	
 	public void run() {
 		while(true) {
 			// MAKE A CHANGE
-			Flappybird.act();
+			bird.act(platform);
 
 			// SHOW THE CHANGE
 			repaint();
@@ -148,10 +121,10 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	
 	}
 	public void checkBird() {
-		int x = Flappybird.getX() + Flappybird.getWidth()/2;
-		int y = Flappybird.getY() + Flappybird.getHeight()/2;
+		int x = bird.getX() + bird.getWidth()/2;
+		int y = bird.getY() + bird.getHeight()/2;
 		if (x < 0 || x > DRAWING_WIDTH || y < 0 || y > DRAWING_HEIGHT)
-			Flappybird= new Bird(380,0);
+			bird= new Flappybird(380,0);
 	}
 
 	
