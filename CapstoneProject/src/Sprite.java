@@ -10,7 +10,7 @@ public class Sprite {
 	private int width, height;
 	private Image image;
 	
-	private double yVel, gravity;
+	private double yVel;
 	
 	
 	public Sprite(String filename, int x, int y, int w, int h) {
@@ -23,7 +23,7 @@ public class Sprite {
 		this.y = y;
 		width = w;
 		height = h;
-		yVel = 0;
+		yVel = 5;
 	}
 	
 	public void draw(Graphics g, ImageObserver io) {
@@ -63,20 +63,17 @@ public class Sprite {
 	}
 	
 	public void act() {
-		if (y < 600) {
-			this.y += yVel;
-			yVel = 5;
+		if (y < 540) {
+			y += yVel;
+		}
+		
+		else {
+			yVel = 0;
 		}
 	}
-
-	/*
-	public void setYVel(int y) {
-		this.yVel = y;
-	}
-	*/
 	
 	public void jump() {
-		yVel -= 5;
+		y -= 100;
 	}
 	
 	/*
