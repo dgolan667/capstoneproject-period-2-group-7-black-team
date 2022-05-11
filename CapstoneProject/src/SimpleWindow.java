@@ -47,6 +47,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		bird.draw(g,this);
 		platform.draw(g,this);
 		Fire.draw(g,this);
+		pipe.drawPipe(g, pipe);
 	}
 	
     public void run() {

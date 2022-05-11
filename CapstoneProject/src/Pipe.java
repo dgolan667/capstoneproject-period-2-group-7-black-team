@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Pipe {
     /*
@@ -21,7 +22,9 @@ public class Pipe {
 	
 	// FIELDS
 	private int x, y1, y2, w, h1, h2;
-	private int gap = 100;
+	private int gap = 180;
+	private Pipe pipe;
+	private ArrayList <Pipe> pipes;
 	
 	// CONSTRUCTORS
 	public Pipe (int height) {
@@ -34,7 +37,17 @@ public class Pipe {
 	}
 	
 	// METHODS
-	public void draw(Graphics g) {
-		g.fillRect(x, y1, h1, w);
+	public void drawPipe (Graphics g, Pipe pipe) {
+		g.setColor(Color.BLUE);
+		g.fillRect(x, y1, w, h1);
+		g.fillRect(x, y2, w, h2);
+	}
+	
+	public void repaint (boolean on) {
+		while (on) {
+			x += 200;
+			pipe.drawPipe(null, pipe);
+		}
+		
 	}
 }
