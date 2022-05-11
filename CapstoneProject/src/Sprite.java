@@ -10,10 +10,9 @@ public class Sprite {
 	private int width, height;
 	private Image image;
 	
-	private double xVel, yVel;
+	private double xVel, yVel, gravity;
 	
 	private double friction = .9;
-	
 	
 	public Sprite(String filename, int x, int y, int w, int h) {
 		this((new ImageIcon(filename)).getImage(),x,y,w,h);
@@ -25,8 +24,6 @@ public class Sprite {
 		this.y = y;
 		width = w;
 		height = h;
-	
-		xVel = 0;
 		yVel = 0;
 	}
 	
@@ -66,6 +63,13 @@ public class Sprite {
 		}
 	}
 	
+//	public void act() {
+//		if (y < 600) {
+//			this.y += yVel;
+//			yVel = 5;
+//		}
+//	}
+	
 	public void act() {
 		this.x += xVel;
 		this.y += yVel;
@@ -81,14 +85,19 @@ public class Sprite {
 	public void setXVel(int x) {
 		this.xVel = x;
 	}
-	
+
 	public void setYVel(int y) {
 		this.yVel = y;
 	}
+
+	
+	public void jump() {
+		yVel -= 5;
+	}
+	
 	
 	public void accelerate(double x, double y) {
-		this.xVel += x;
 		this.yVel += y;
 	}
-
+	
 }

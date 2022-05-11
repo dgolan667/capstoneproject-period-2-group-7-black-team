@@ -5,10 +5,6 @@ import javax.swing.ImageIcon;
 
 public class Pipe extends Sprite{
 
-	private int x,y;
-	private int width, height;
-	private Image image;
-	
 	public Pipe(int x, int y) {
 		this("Pipe.png",x,y,40,50);
 	}
