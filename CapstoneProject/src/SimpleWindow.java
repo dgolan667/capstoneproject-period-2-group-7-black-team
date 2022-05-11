@@ -20,6 +20,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
     private ArrayList<Pipe> pipes;
     private Sprite platform; 
     private Sprite Fire; 
+    private Sprite background; 
     
     // CONSTRUCTORS
 	public SimpleWindow () {
@@ -29,6 +30,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	    pipe = new Pipe(210);
 		//pipes = new ArrayList<Pipe>();
 		
+	    background = new Sprite ("background.png",0,0,800,600);
 		platform = new Sprite("Pipe.png",70,515,100,120);
 		Fire = new Sprite("obstacles.png",400,443,200,250);
 		Color LBLUE= new Color(102,178,255); 
@@ -47,7 +49,8 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		double ratioY = (double)height/DRAWING_HEIGHT;
 
 		((Graphics2D)g).scale(ratioX,ratioY);
-	
+		
+		background.draw(g, this);
 		bird.draw(g,this);
 		platform.draw(g,this);
 		Fire.draw(g,this);
