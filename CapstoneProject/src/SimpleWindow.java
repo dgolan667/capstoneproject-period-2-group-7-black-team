@@ -15,6 +15,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 
     private Flappybird bird;
     private Pipe pipe;
+    private Sprite platform; 
     private Sprite Fire; 
     
     // CONSTRUCTORS
@@ -23,6 +24,8 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		bird = new Flappybird(100,250);
 		//Pipe = new Sprite("Pipe.png",200,415,100,250);
 		pipe = new Pipe(40);
+		
+		platform = new Sprite("Pipe.png",70,515,100,120);
 		Fire = new Sprite("obstacles.png",400,443,200,250);
 		Color LBLUE= new Color(102,178,255); 
 		setBackground(LBLUE); 
@@ -42,12 +45,13 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		((Graphics2D)g).scale(ratioX,ratioY);
 	
 		bird.draw(g,this);
+		platform.draw(g,this);
 		Fire.draw(g,this);
 	}
 	
     public void run() {
 		while(true) {
-			bird.act();
+			bird.act(platform);
 			repaint();
 			try {
 				Thread.sleep(17);
@@ -60,6 +64,8 @@ public class SimpleWindow extends JPanel implements KeyListener {
     public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			bird.jump();
+		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			bird.move();
 		}
     }
 		
@@ -79,6 +85,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		w.setBounds(50, 50, 800, 600);
 		w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		SimpleWindow panel = new SimpleWindow();
+		w.addKeyListener(panel);
 		w.add(panel);
 		w.setResizable(true);
 		w.setVisible(true);
