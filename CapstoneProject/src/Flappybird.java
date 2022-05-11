@@ -3,6 +3,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class Flappybird extends Sprite{
+	// CONSTRUCTORS
 	public Flappybird(int x, int y) {
 		this("bird.png",x,y,60,60);
 	}
@@ -17,18 +18,12 @@ public class Flappybird extends Sprite{
 		super(img, x, y, w, h);
 	}
 	
+	// METHODS
 	public void jump() {
 		super.jump();
 	}
 	
-	/*
-	public void fly() {
-		setYVel(5);
-	}
-	*/
-	
 	public void act() {
-		//accelerate(0, 0.2); 
 		super.act();
 	}
 	

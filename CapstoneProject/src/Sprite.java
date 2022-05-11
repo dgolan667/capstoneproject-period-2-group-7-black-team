@@ -73,7 +73,7 @@ public class Sprite {
 	}
 	
 	public void jump() {
-		y -= 100;
+		yVel = -5;
 	}
 	
 	/*
