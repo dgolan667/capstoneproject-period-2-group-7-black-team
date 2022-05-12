@@ -28,7 +28,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	    background = new Sprite ("background.png",0,0,800,600);
 		platform = new Sprite("Pipe.png",70,515,100,120);
 		Fire = new Sprite("obstacles.png",400,443,200,250);
-		
 		pipes = new ArrayListPipes ();
 	}
 	
@@ -56,17 +55,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		pipes.move();
 	}
 	
-    /*public void run() {
-		while(true) {
-			bird.act(platform);
-		
-			repaint();
-			try {
-				Thread.sleep(17);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}*/
+   
 	/*
     public void actionPerformed(ActionEvent e, Graphics g) {
     	pipe.drawPipe(g, pipe, true);
@@ -98,9 +87,11 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			bird.jump();	
-		} else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			bird.down();	
-		} 
+		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			bird.move();	
+		} else if (e.getKeyCode()==KeyEvent.VK_SPACE) {
+			pipes.move();
+		}
 	}
 	
 	public static void main(String[] args) {
@@ -117,7 +108,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	
 	public void run() {
 		while(true) {
-			//bird.act(platform);
 			bird.act(platform);
             //pipes.move();
 			repaint();

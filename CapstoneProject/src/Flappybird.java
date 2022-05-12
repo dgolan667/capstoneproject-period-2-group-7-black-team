@@ -23,25 +23,13 @@ public class Flappybird extends Sprite{
 		super.setYVel(y);
 	}
 	
-	
-	
 	public void move () {
 		int x = 0; 
 		x+=10; 
 		super.setXVel(x);
 	}
 	
-	public void down () {
-		
-		int y = 0; 
-		y-=5; 
-		super.setYVel(y);
-		
-//			setYVel(0);
-//		}
-	}
-	
-	
+
 	public void act(Sprite platform) {
 		accelerate(0,0.2);  // gravity
 		super.act();  // move mario based on his velocities
