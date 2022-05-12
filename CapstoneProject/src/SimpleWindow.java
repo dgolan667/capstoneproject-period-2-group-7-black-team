@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -18,8 +19,9 @@ public class SimpleWindow extends JPanel implements KeyListener {
     private Flappybird bird;
     private ArrayListPipes pipes;
     private Sprite platform; 
-    private Sprite Fire; 
+    //private Sprite Fire; 
     private Sprite background; 
+    private boolean collision;
     
     // CONSTRUCTORS
 	public SimpleWindow () {
@@ -27,13 +29,11 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		bird = new Flappybird(100,250);
 	    background = new Sprite ("background.png",0,0,800,600);
 		platform = new Sprite("Pipe.png",70,515,100,120);
-		Fire = new Sprite("obstacles.png",400,443,200,250);
+		//Fire = new Sprite("obstacles.png",400,443,200,250);
 		
 		pipes = new ArrayListPipes ();
 	}
 	
-
-	// METHODS
 	// METHODS	
 	public void paintComponent(Graphics g)
 	{
@@ -50,23 +50,23 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		background.draw(g, this);
 		bird.draw(g,this);
 		platform.draw(g,this);
-		Fire.draw(g,this);
+		//Fire.draw(g,this);
 		
 		pipes.drawPipes(g);
 		pipes.move();
 	}
 	
-    /*public void run() {
-		while(true) {
-			bird.act(platform);
-		
-			repaint();
-			try {
-				Thread.sleep(17);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}*/
+	public boolean doesRectangleSpriteCollide(Pipe pipe) {
+		Pipe pipe0 = pipes.getPipe();
+		if ((bird.turnToRectangle()).intersects(pipe0.turnTopPipeToRectangle()) || (bird.turnToRectangle()).intersects(pipe0.turnBottomPipeToRectangle())) { // Check if they intersect
+			collision = true;
+		} else {
+			collision = false;
+		}
+
+		return collision;
+	}
+	
 	/*
     public void actionPerformed(ActionEvent e, Graphics g) {
     	pipe.drawPipe(g, pipe, true);
@@ -117,8 +117,8 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	
 	public void run() {
 		while(true) {
-			//bird.act(platform);
 			bird.act(platform);
+			
             //pipes.move();
 			repaint();
 			try {
