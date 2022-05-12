@@ -1,37 +1,29 @@
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class Pipe {
-	// FIELDS
-	private int x, y1, y2, w;
-	private double h1, h2;
+	private int x, y1, y2, h1, h2;
 	private int gap = 180;
-	private ArrayList <Pipe> pipes;
+	private int pipeVel = -2;
+	private double acceleration = 1.01;
+	private final int w = 50;
 	
-	// CONSTRUCTORS
-	public Pipe (double height) {
-		x = 400;
-		y1 = 0;
-		h1 = height;
-		y2 = (int)(h1 + gap);
-		h2 = 600 - h1 - gap;
-		w = 50;
+	public Pipe (int x, int y, int w, int h) {
+		this.x = x;
+		y1 = y;
+		w = 50; 
+		this.h1 = h;
+		y2 = h1 + gap;
+		h2 = 600 - y2;
 	}
 	
-	// METHODS
-	public void drawPipe (Graphics g) {
-		g.setColor(Color.BLUE);
-		g.fillRect(x, y1, w, (int)h1);
-		g.fillRect(x, y2, w, (int)h2);
+	public void draw (Graphics g) {
+		g.setColor(Color.RED);
+		g.fillRect(x, y1, w, h1);
+		g.fillRect(x, y2, w, h2);
 	}
 	
-	public void repaint (boolean on) {
-		while (on) {
-			x += 5;
-			Pipe aPipe = new Pipe(Math.random()* 210);
-			pipes.add(aPipe);	
-		}
+	public void move () {
+		x += pipeVel;
+		pipeVel *= acceleration;
 	}
 }
