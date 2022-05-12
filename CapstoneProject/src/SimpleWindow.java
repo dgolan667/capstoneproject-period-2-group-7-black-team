@@ -98,7 +98,9 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			bird.jump();	
-		}
+		} else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			bird.down();	
+		} 
 	}
 	
 	public static void main(String[] args) {
@@ -115,6 +117,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	
 	public void run() {
 		while(true) {
+			//bird.act(platform);
 			bird.act(platform);
             //pipes.move();
 			repaint();
