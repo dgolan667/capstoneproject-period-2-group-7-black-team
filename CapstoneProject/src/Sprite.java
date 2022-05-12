@@ -1,5 +1,6 @@
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.image.ImageObserver;
 
 import javax.swing.ImageIcon;
@@ -102,10 +103,4 @@ public class Sprite {
 		this.xVel += x;
 		this.yVel += y;
 	}
-	
-	/*
-	public void accelerate(double x, double y) {
-		this.yVel += y;
-	}
-	*/
 }

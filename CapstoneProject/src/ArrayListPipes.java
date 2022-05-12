@@ -26,4 +26,8 @@ public class ArrayListPipes {
 			pipes.get(i).move();
 		}
 	}
+	
+	public Pipe getPipe () {
+		return pipes.get(1);
+	}
 }
