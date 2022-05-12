@@ -22,8 +22,15 @@ public class SimpleWindow extends JPanel implements KeyListener {
     //private Sprite Fire; 
     private Sprite background; 
     private boolean collision;
+    private ScreenMain m;
     
     // CONSTRUCTORS
+    
+    public SimpleWindow(ScreenMain m) {
+		super();
+		this.m=m;
+    }
+	
 	public SimpleWindow () {
 		super();
 		bird = new Flappybird(100,250);
@@ -33,8 +40,8 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		
 		pipes = new ArrayListPipes ();
 	}
-	
-	// METHODS	
+
+	// METHODS
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);  // Call JPanel's paintComponent method to paint the background
@@ -55,7 +62,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		pipes.drawPipes(g);
 		pipes.move();
 	}
-	
+
 	public boolean doesRectangleSpriteCollide(Pipe pipe) {
 		Pipe pipe0 = pipes.getPipe();
 		if ((bird.turnToRectangle()).intersects(pipe0.turnTopPipeToRectangle()) || (bird.turnToRectangle()).intersects(pipe0.turnBottomPipeToRectangle())) { // Check if they intersect
@@ -97,10 +104,10 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			bird.jump();	
-		} else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			bird.down();	
-		} 
+			bird.jump();		
+		} else if (e.getKeyCode()==KeyEvent.VK_SPACE) {
+			pipes.move();
+		}
 	}
 	
 	public static void main(String[] args) {
@@ -136,5 +143,5 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			bird= new Flappybird(380,0);
 	}
 
-	
+    
 }
