@@ -67,8 +67,7 @@ public class Sprite {
 		yVel = -100;
 	    this.y += yVel;
 	}
-	
-	
+		
 	public void act() {
 		if (y < 530) {
 			this.y += yVel;
