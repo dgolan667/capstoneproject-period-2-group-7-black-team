@@ -18,7 +18,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 
     private Flappybird bird;
     private ArrayListPipes pipes;
-    private Sprite platform; 
+    //private Sprite platform; 
     //private Sprite Fire; 
     private Sprite background; 
     private boolean collision;
@@ -35,7 +35,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		super();
 		bird = new Flappybird(100,250);
 	    background = new Sprite ("background.png",0,0,800,600);
-		platform = new Sprite("Pipe.png",70,515,100,120);
+		//platform = new Sprite("Pipe.png",70,515,100,120);
 		//Fire = new Sprite("obstacles.png",400,443,200,250);
 		
 		pipes = new ArrayListPipes ();
@@ -56,7 +56,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		
 		background.draw(g, this);
 		bird.draw(g,this);
-		platform.draw(g,this);
+		//platform.draw(g,this);
 		//Fire.draw(g,this);
 		
 		pipes.drawPipes(g);
@@ -124,7 +124,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	
 	public void run() {
 		while(true) {
-			bird.act(platform);
+			bird.act();
 			
             //pipes.move();
 			repaint();

@@ -34,14 +34,9 @@ public class Flappybird extends Sprite {
 //		}
 	}
 		
-	public void act(Sprite platform) {
-		accelerate(0,0.2);  // gravity
-		super.act();  // move mario based on his velocities
-		
-		if (platform.isPointInside(getX(), getY()+getHeight())) {  // did mario hit the platform?
-			setY(platform.getY()-getHeight());  // put mario on top of the platform
-			setYVel(0);  // stop him from falling
-		}	
+	public void act() {
+		accelerate(0,0.2);
+		super.act();
 	}
 	
 	public Rectangle turnToRectangle () {

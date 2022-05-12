@@ -62,28 +62,17 @@ public class Sprite {
 			return false;
 		}
 	}
-	
-//	public void act() {
-//		if (y < 540) {
-//			y += yVel;
-//		}
-//		
-//		else {
-//			yVel = 0;
-//		}
-//	}
-//	
-	
+		
 	public void jump() {
-		y -= 100;
+		yVel = -100;
+	    this.y += yVel;
 	}
 	
 	
 	public void act() {
-		this.x += xVel;
-		this.y += yVel;
-		
-		xVel *= friction;
+		if (y < 530) {
+			this.y += yVel;
+		}
 	}
 	
 	public void undoAct() {
