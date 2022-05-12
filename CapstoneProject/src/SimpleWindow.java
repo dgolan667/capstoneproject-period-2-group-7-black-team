@@ -16,8 +16,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	public static final int DRAWING_HEIGHT = 600;
 
     private Flappybird bird;
-    private Pipe pipe;
-    private ArrayList<Pipe> pipes;
+    private ArrayListPipes pipes;
     private Sprite platform; 
     private Sprite Fire; 
     private Sprite background; 
@@ -26,21 +25,16 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	public SimpleWindow () {
 		super();
 		bird = new Flappybird(100,250);
-
-		pipe = new Pipe(400, 0, 50, (int)(Math.random()* 450));
-	
 	    background = new Sprite ("background.png",0,0,800,600);
 		platform = new Sprite("Pipe.png",70,515,100,120);
 		Fire = new Sprite("obstacles.png",400,443,200,250);
-		Color LBLUE= new Color(102,178,255); 
+		Color LBLUE = new Color(102,178,255); 
 		setBackground(LBLUE); 
 		
-		pipe = new Pipe(400, 0, 50, (int)(Math.random()* 450));
-		
-		pipes = new ArrayList<Pipe>();
+		pipes = new ArrayListPipes ();
 	}
 	
-	// METHODS
+	// METHODS	
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);  // Call JPanel's paintComponent method to paint the background
@@ -57,7 +51,8 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		bird.draw(g,this);
 		platform.draw(g,this);
 		Fire.draw(g,this);
-		pipe.draw(g);
+		
+		pipes.drawPipes(g);
 	}
 	
 	/*

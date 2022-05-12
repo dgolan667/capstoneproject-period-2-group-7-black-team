@@ -1,14 +1,10 @@
 import java.awt.*;
-import java.util.ArrayList;
 
 public class Pipe {
 	private int x, y1, y2, h1, h2;
 	private int gap = 150;
 	private final int w = 50;
-	private final int space = 150;
 	
-	private ArrayList <Pipe> pipes;
-
 	public Pipe (int x, int y, int w, int h) {
 		this.x = x;
 		y1 = y;
@@ -18,24 +14,10 @@ public class Pipe {
 		h2 = 600 - y2;
 	}
 	
-	public void addPipe() {
-		pipes.add(new Pipe(x, y1, w, h1));
-		pipes.add(new Pipe(x, y2, w, h2));
-		
-	    for (int i = 0; i < pipes.size(); i++) {
-			Pipe pipe = pipes.get(i);
-			pipe.x -= space;
-		}
-	}
-	
 	public void draw (Graphics g) {
 		g.setColor(Color.RED);
-		if (true) {
-			g.fillRect(x, y1, w, h1);
-			g.fillRect(x, y2, w, h2);
-			x -= space;
-		}
-
+		g.fillRect(x, y1, w, h1);
+		g.fillRect(x, y2, w, h2);
 	}
 }
 
