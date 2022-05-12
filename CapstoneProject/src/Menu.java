@@ -50,10 +50,10 @@ public class Menu extends  JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==(button1))
 		{
-					
+		//go to StaringMenu 			
 		}
 		else if(e.getSource()==(button2)) {
-			
+		// go to character	
 		}
 	}
 	

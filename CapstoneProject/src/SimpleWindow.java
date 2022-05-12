@@ -20,8 +20,15 @@ public class SimpleWindow extends JPanel implements KeyListener {
     private Sprite platform; 
     private Sprite Fire; 
     private Sprite background; 
+    private ScreenMain m;
     
     // CONSTRUCTORS
+    
+    public SimpleWindow(ScreenMain m) {
+		super();
+		this.m=m;
+    }
+	
 	public SimpleWindow () {
 		super();
 		bird = new Flappybird(100,250);
@@ -33,6 +40,9 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		
 		pipes = new ArrayListPipes ();
 	}
+	
+	
+	
 	
 
 	// METHODS
@@ -135,5 +145,5 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			bird= new Flappybird(380,0);
 	}
 
-	
+    
 }
