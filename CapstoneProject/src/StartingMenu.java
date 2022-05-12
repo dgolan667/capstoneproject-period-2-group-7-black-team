@@ -5,10 +5,10 @@ import java.awt.event.*;
 
 public class StartingMenu extends JPanel implements ActionListener {
 	
-	private ScreenMain w;
+	private ScreenMain a;
 	
-		public StartingMenu(ScreenMain w) {
-			this.w = w;
+		public StartingMenu(ScreenMain a) {
+			this.a = a;
 			JPanel p = new JPanel();
 			
 			p.setLayout(new BoxLayout(p,BoxLayout.Y_AXIS));
@@ -22,7 +22,7 @@ public class StartingMenu extends JPanel implements ActionListener {
 		}
 	
 		public void actionPerformed(ActionEvent e) {
-			w.changePanel("2");
+			a.changePanel("2");
 		}
 	
 

@@ -15,15 +15,18 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	// FIELDS
 	public static final int DRAWING_WIDTH = 800;
 	public static final int DRAWING_HEIGHT = 600;
-	//private static final ScreenMain m= null;
+	public static ScreenMain main;
 
     private Flappybird bird;
     private ArrayListPipes pipes;
     //private Sprite platform; 
     //private Sprite Fire; 
     private Sprite background; 
+   // private  ScreenMain m;
+
     private  ScreenMain m;
     private boolean collision;
+
     
     // CONSTRUCTORS
     
@@ -34,7 +37,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	
 	public SimpleWindow (ScreenMain m) {
 		super();
-		this.m = m;
+		this.main= m;
 		bird = new Flappybird(100,250);
 	    background = new Sprite ("background.png",0,0,800,600);
 		//platform = new Sprite("Pipe.png",70,515,100,120);
@@ -106,17 +109,19 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			bird.jump();		
-		} else if (e.getKeyCode()==KeyEvent.VK_SPACE) {
-			pipes.move();
-		}
-	}
+			bird.jump();	
+		} 
+//		else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+//			bird.move();	
+		} 
+
+	
 	
 	public static void main(String[] args) {
 		JFrame w = new JFrame("Window");
 		w.setBounds(50, 50, 800, 600);
 		w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		SimpleWindow panel = new SimpleWindow(null);
+		SimpleWindow panel = new SimpleWindow(main);
 		w.addKeyListener(panel);
 		w.add(panel);
 		w.setResizable(true);
