@@ -28,8 +28,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	    background = new Sprite ("background.png",0,0,800,600);
 		platform = new Sprite("Pipe.png",70,515,100,120);
 		Fire = new Sprite("obstacles.png",400,443,200,250);
-		Color LBLUE = new Color(102,178,255); 
-		setBackground(LBLUE); 
 		
 		pipes = new ArrayListPipes ();
 	}
