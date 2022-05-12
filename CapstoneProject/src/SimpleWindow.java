@@ -32,6 +32,8 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		pipes = new ArrayListPipes ();
 	}
 	
+
+	// METHODS
 	// METHODS	
 	public void paintComponent(Graphics g)
 	{
@@ -54,6 +56,17 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		pipes.move();
 	}
 	
+    /*public void run() {
+		while(true) {
+			bird.act(platform);
+		
+			repaint();
+			try {
+				Thread.sleep(17);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}*/
 	/*
     public void actionPerformed(ActionEvent e, Graphics g) {
     	pipe.drawPipe(g, pipe, true);
