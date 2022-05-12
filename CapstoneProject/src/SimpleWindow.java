@@ -20,6 +20,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
     private Sprite platform; 
     private Sprite Fire; 
     private Sprite background; 
+    private boolean collision1; 
     private ScreenMain m;
     
     // CONSTRUCTORS
@@ -99,9 +100,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			bird.jump();	
 		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			bird.move();	
-		} else if (e.getKeyCode()==KeyEvent.VK_SPACE) {
-			pipes.move();
-		}
+		} 
 	}
 	
 	public static void main(String[] args) {
