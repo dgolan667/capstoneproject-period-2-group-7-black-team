@@ -53,6 +53,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		Fire.draw(g,this);
 		
 		pipes.drawPipes(g);
+		pipes.move();
 	}
 	
 	/*
@@ -103,13 +104,9 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	
 	public void run() {
 		while(true) {
-			// MAKE A CHANGE
 			bird.act(platform);
-
-			// SHOW THE CHANGE
+            //pipes.move();
 			repaint();
-
-			// WAIT
 			try {
 				Thread.sleep(17);
 			} catch (InterruptedException e) {

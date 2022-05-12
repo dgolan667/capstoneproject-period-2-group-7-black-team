@@ -2,7 +2,9 @@ import java.awt.*;
 
 public class Pipe {
 	private int x, y1, y2, h1, h2;
-	private int gap = 150;
+	private int gap = 180;
+	private int pipeVel = -2;
+	private double acceleration = 1.01;
 	private final int w = 50;
 	
 	public Pipe (int x, int y, int w, int h) {
@@ -19,65 +21,9 @@ public class Pipe {
 		g.fillRect(x, y1, w, h1);
 		g.fillRect(x, y2, w, h2);
 	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-public class Pipe {
-	// FIELDS
-	private int x, y1, y2, w;
-	private double h1, h2;
-	private int gap = 180;
-	private ArrayList <Pipe> pipes;
-	private int space = 150;
 	
-	// CONSTRUCTORS
-	public Pipe (int x, int y, int w, double h) {
-		this.x = x;
-		y1 = y;
-		this.w = w;
-		h1 = h;
-		y2 = (int)(h1 + gap);
-		h2 = 600 - h1 - gap;
-		pipes = new ArrayList<Pipe>();
-		Pipe pipe = new Pipe()
-	}
-	
-	// METHODS
-	public void addPipe () {
-		if (true) {
-			pipes.add(new Pipe(x, y1, w, h1));
-			pipes.add(new Pipe(x, y2, w, h2));
-		}
-		
-		for (int i = 0; i < 10; i++) {
-			pipe.x -= space;
-		}
-	}
-	
-	
-	
-	
-	
-	
-	public void drawPipe (Graphics g) {
-		g.setColor(Color.red);
-		for (int d = 0; d < 150; d++) {
-			g.fillRect(Pipe.x, Pipe.y, Pipe.w, Pipe.h);
-		}
+	public void move () {
+		x += pipeVel;
+		pipeVel *= acceleration;
 	}
 }
-*/

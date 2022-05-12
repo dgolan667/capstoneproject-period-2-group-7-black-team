@@ -9,22 +9,21 @@ public class ArrayListPipes {
     	pipes = new ArrayList <Pipe> ();
     	
     	int x = 400;
-    	for (int i = 0; i < 4; i++) {
+    	for (int i = 0; i < 1000; i++) { // modify later as the number of pipes might be changed
     		pipes.add(new Pipe(x, 0, 50, (int)(Math.random()*450)));
-    		x += 200;
+    		x += 250;
     	}
-    	/*
-    	pipes.add(new Pipe(400, 0, 50, (int)(Math.random()*450)));
-		pipes.add(new Pipe(600, 0, 50, (int)(Math.random()* 450)));
-		pipes.add(new Pipe(800, 0, 50, (int)(Math.random()* 450)));
-		pipes.add(new Pipe(1000, 0, 50, (int)(Math.random()* 450)));
-		*/
     }
     
-	public void drawPipes(Graphics g)
-	{
+	public void drawPipes(Graphics g) {
         for (int i = 0; i < pipes.size(); i++) {
         	pipes.get(i).draw(g);;
         }
+	}
+	
+	public void move () {
+		for (int i = 0; i < pipes.size(); i++) {
+			pipes.get(i).move();
+		}
 	}
 }
