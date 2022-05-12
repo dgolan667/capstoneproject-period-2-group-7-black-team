@@ -17,30 +17,28 @@ public class Flappybird extends Sprite{
 		super(img, x, y, w, h);
 	}
 	
-//	public void jump() {
-//		super.jump();
-//	}
-	
 	public void jump() {
-		accelerate (0,-5); 
+		int y = 0; 
+		y-=5; 
+		super.setYVel(y);
 	}
 	
 	
-	/*
-	public void fly() {
-		setYVel(5);
-	}
-	*/
-	
-//	public void act() {
-//		//accelerate(0, 0.2); 
-//		super.act();
-//	}
 	
 	public void move () {
 		int x = 0; 
 		x+=10; 
 		super.setXVel(x);
+	}
+	
+	public void down () {
+		
+		int y = 0; 
+		y-=5; 
+		super.setYVel(y);
+		
+//			setYVel(0);
+//		}
 	}
 	
 	
@@ -52,6 +50,8 @@ public class Flappybird extends Sprite{
 			setY(platform.getY()-getHeight());  // put mario on top of the platform
 			setYVel(0);  // stop him from falling
 		}
+		
+		
 	}
 	
 

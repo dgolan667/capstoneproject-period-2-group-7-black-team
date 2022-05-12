@@ -35,8 +35,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	    background = new Sprite ("background.png",0,0,800,600);
 		platform = new Sprite("Pipe.png",70,515,100,120);
 		Fire = new Sprite("obstacles.png",400,443,200,250);
-		Color LBLUE = new Color(102,178,255); 
-		setBackground(LBLUE); 
 		
 		pipes = new ArrayListPipes ();
 	}
@@ -110,7 +108,9 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			bird.jump();	
-		}
+		} else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			bird.down();	
+		} 
 	}
 	
 	public static void main(String[] args) {
@@ -127,6 +127,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	
 	public void run() {
 		while(true) {
+			//bird.act(platform);
 			bird.act(platform);
             //pipes.move();
 			repaint();
