@@ -26,15 +26,18 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	public SimpleWindow () {
 		super();
 		bird = new Flappybird(100,250);
-		//Pipe = new Sprite("Pipe.png",200,415,100,250);
-	    pipe = new Pipe(210);
-		//pipes = new ArrayList<Pipe>();
-		
+
+		pipe = new Pipe(400, 0, 50, (int)(Math.random()* 450));
+	
 	    background = new Sprite ("background.png",0,0,800,600);
 		platform = new Sprite("Pipe.png",70,515,100,120);
 		Fire = new Sprite("obstacles.png",400,443,200,250);
 		Color LBLUE= new Color(102,178,255); 
 		setBackground(LBLUE); 
+		
+		pipe = new Pipe(400, 0, 50, (int)(Math.random()* 450));
+		
+		pipes = new ArrayList<Pipe>();
 	}
 	
 	// METHODS
@@ -54,16 +57,13 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		bird.draw(g,this);
 		platform.draw(g,this);
 		Fire.draw(g,this);
-		pipe.drawPipe(g);
+		pipe.draw(g);
 	}
 	
-    
-	
-    /*
-    public void actionPerformed(ActionEvent e) {
-    	pipe.draw(getGraphics());
+	/*
+    public void actionPerformed(ActionEvent e, Graphics g) {
+    	pipe.drawPipe(g, pipe, true);
     }
-    */
     
 	/*
 	public void checkBird() {
