@@ -72,9 +72,11 @@ public class Sprite {
 //		}
 //	}
 //	
-//	public void jump() {
-//		y -= 100;
-//	}
+	
+	public void jump() {
+		y -= 100;
+	}
+	
 	
 	public void act() {
 		this.x += xVel;

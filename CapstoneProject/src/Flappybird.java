@@ -17,25 +17,14 @@ public class Flappybird extends Sprite{
 		super(img, x, y, w, h);
 	}
 	
-//	public void jump() {
-//		super.jump();
-//	}
-	
 	public void jump() {
-		accelerate (0,-5); 
+		super.jump();
 	}
 	
-	
-	/*
-	public void fly() {
-		setYVel(5);
-	}
-	*/
-	
-//	public void act() {
-//		//accelerate(0, 0.2); 
-//		super.act();
+//	public void jump() {
+//		accelerate (0,-5); 
 //	}
+	
 	
 	public void move () {
 		int x = 0; 
