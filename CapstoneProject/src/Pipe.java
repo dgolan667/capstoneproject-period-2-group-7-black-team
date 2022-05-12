@@ -26,4 +26,12 @@ public class Pipe {
 		x += pipeVel;
 		pipeVel *= acceleration;
 	}
+	
+	public Rectangle turnTopPipeToRectangle() {
+		return new Rectangle(x, y1, w, h1);
+	}
+	
+	public Rectangle turnBottomPipeToRectangle() {
+		return new Rectangle(x, y2, w, h2);
+	}
 }
