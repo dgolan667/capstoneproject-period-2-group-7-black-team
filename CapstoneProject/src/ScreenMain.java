@@ -18,6 +18,7 @@ public class ScreenMain extends JFrame{
 		StartingMenu panel1 = new StartingMenu(this);    
 	    SimpleWindow panel2 = new SimpleWindow(this);
 	    
+	    
 	
 	    BirdPanel.add(panel1,"1"); 
 	    BirdPanel.add(panel2,"2"); 
@@ -31,7 +32,7 @@ public class ScreenMain extends JFrame{
 	
 	public static void main(String[] args)
 	{
-		ScreenMain w = new ScreenMain("FlappyBird");
+		ScreenMain a = new ScreenMain("FlappyBird");
 		//app upper name
 	}
   

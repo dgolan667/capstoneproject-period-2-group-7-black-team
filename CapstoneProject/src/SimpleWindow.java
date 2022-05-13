@@ -15,7 +15,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	// FIELDS
 	public static final int DRAWING_WIDTH = 800;
 	public static final int DRAWING_HEIGHT = 600;
-	public static ScreenMain main;
+	private static ScreenMain main;
 
     private Flappybird bird;
     private ArrayListPipes pipes;
