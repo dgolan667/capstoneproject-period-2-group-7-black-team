@@ -117,7 +117,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			bird.jump();
 		}
-		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+		if (e.getKeyCode() == KeyEvent.VK_DOWN) {//down button to make game easier
 			bird.down();
 			System.out.print("DN");
 		}
@@ -168,7 +168,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 
 	}*/
 	
-	public void start () {
+	public void start () {//starting the game
 		running = true;
 		gameThread = new Thread() {
 			@Override
@@ -189,7 +189,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		//System.out.print("Updated");
 		
 		// collision check
-		collision = doesRectangleSpriteCollide();
+		collision = doesRectangleSpriteCollide();//check the object and bird touched
 		if ( collision==true )
 			gameStop();
 	}
