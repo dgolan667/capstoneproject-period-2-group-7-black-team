@@ -43,12 +43,14 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		
 		pipes = new ArrayListPipes ();
 		
+
 		collision = false;
 		started = false;
 		running = false;
 		
 		start();
 	
+
 	}
 
 	// METHODS

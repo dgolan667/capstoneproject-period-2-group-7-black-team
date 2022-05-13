@@ -23,6 +23,7 @@ public class Flappybird extends Sprite {
 		y-=5; 
 		super.setYVel(y);
 	}
+
 	
 	public void down() {
 		int y = 0; 
@@ -31,6 +32,7 @@ public class Flappybird extends Sprite {
 	}
 	
 	
+
 	public void act() {
 		accelerate(0,0.2);
 		super.act();
