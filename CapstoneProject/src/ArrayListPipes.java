@@ -17,7 +17,12 @@ public class ArrayListPipes {
     
 	public void drawPipes(Graphics g) {
         for (int i = 0; i < pipes.size(); i++) {
-        	pipes.get(i).draw(g);;
+        	pipes.get(i).draw(g);
+        	
+        	double j = i/5.0;
+        	if (j == (int)j) {
+        		pipes.get((int)j*5).drawCoin(g);
+        	}
         }
 	}
 	
@@ -26,8 +31,13 @@ public class ArrayListPipes {
 			pipes.get(i).move();
 		}
 	}
+
 	
 	public Pipe getPipe () {
 		return pipes.get(1);
+	}
+	
+	public void remove () {
+		
 	}
 }

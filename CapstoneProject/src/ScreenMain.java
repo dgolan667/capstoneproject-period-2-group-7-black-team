@@ -8,7 +8,7 @@ public class ScreenMain extends JFrame{
 	
 	public ScreenMain(String title) {
 		super(title);
-		setBounds(100, 100, 800, 600);
+		setBounds(50, 50, 800, 600);
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    
 	    BirdPanel = new JPanel();
