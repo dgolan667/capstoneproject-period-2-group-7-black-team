@@ -10,9 +10,19 @@ public class Menu extends  JPanel implements ActionListener{
     // FIELDS
 	private int score;
 	private JButton button1, button2;
+	private StartingMenu Menu;
+	
 	
 	JLabel guest = new JLabel("Guest");
 	
+	
+	static void ScreenMain(){
+		
+	}
+	
+	static void Character() {
+		
+	}
 	
 	
 	public Menu() {
@@ -41,19 +51,16 @@ public class Menu extends  JPanel implements ActionListener{
 	}*/
 
 
-
-
-
-
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==(button1))
 		{
-		//go to StaringMenu 			
+		ScreenMain();
 		}
 		else if(e.getSource()==(button2)) {
-		// go to character	
+		Character();	
 		}
 	}
 	

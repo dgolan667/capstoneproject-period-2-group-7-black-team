@@ -75,6 +75,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	}
 
 	public boolean doesRectangleSpriteCollide() {
+		
 		Pipe pipe0 = pipes.getPipe();
 		if ((bird.turnToRectangle()).intersects(pipe0.turnTopPipeToRectangle()) || (bird.turnToRectangle()).intersects(pipe0.turnBottomPipeToRectangle())) { // Check if they intersect
 			collision = true;
