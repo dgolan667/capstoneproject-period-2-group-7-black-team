@@ -5,7 +5,7 @@ import javax.swing.ImageIcon;
 
 public class Flappybird extends Sprite {
 	public Flappybird(int x, int y) {
-		this("bird.png",x,y,60,60);
+		this("dog.png",x,y,60,60);
 	}
 
 	public Flappybird(String filename, int x, int y, int w, int h) {
@@ -32,7 +32,6 @@ public class Flappybird extends Sprite {
 	}
 	
 	
-
 	public void act() {
 		accelerate(0,0.2);
 		super.act();

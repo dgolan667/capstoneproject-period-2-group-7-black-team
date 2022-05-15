@@ -69,9 +69,7 @@ public class Sprite {
 	}
 		
 	public void act() {
-		if (y < 530) {
-			this.y += yVel;
-		}
+		this.y += yVel;
 	}
 	
 	public void undoAct() {

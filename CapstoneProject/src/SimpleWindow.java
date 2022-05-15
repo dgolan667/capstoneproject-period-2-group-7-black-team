@@ -6,15 +6,16 @@ import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class SimpleWindow extends JPanel implements KeyListener {	
 	// FIELDS
-	public static final int DRAWING_WIDTH = 800;
-	public static final int DRAWING_HEIGHT = 600;
+	public static final int WIDTH = 800;
+	public static final int HEIGHT = 600;
+	private int time;
+	private String score;
+    private int coin = 0;   
 	//private static ScreenMain main;
 
     private Flappybird bird;
@@ -22,20 +23,18 @@ public class SimpleWindow extends JPanel implements KeyListener {
     //private Sprite platform; 
     //private Sprite Fire; 
     private Sprite background; 
-    private  ScreenMain m;
-    private boolean collision = false;
+    private ScreenMain m;
+    private boolean collision1 = false;
+    private boolean collision2 = false; 
     
     private Thread gameThread;
     private boolean started = false;
     private boolean running = false;
 
     // CONSTRUCTORS
-    
-    
-	
 	public SimpleWindow (ScreenMain m) {
 		super();
-		this.m= m;
+		this.m = m;
 		bird = new Flappybird(100,250);
 	    background = new Sprite ("background.png",0,0,800,600);
 		//platform = new Sprite("Pipe.png",70,515,100,120);
@@ -43,17 +42,30 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		
 		pipes = new ArrayListPipes ();
 		
-
-		collision = false;
+		collision1 = false;
 		started = false;
 		running = false;
 		
-		start();
-	
-
+		start();		
+		//Timer clock = new Timer(1000, (ActionListener) this); 
+	    //clock.start();
 	}
 
 	// METHODS
+	/*
+	public void actionPerformed(ActionEvent e) {
+		time = 0;
+	    time++;
+	}
+	*/ 
+	
+	/*
+	public String toString() {
+		score = Integer.toString(time);
+		return score;
+	}
+	*/
+	
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);  // Call JPanel's paintComponent method to paint the background
@@ -61,8 +73,8 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		int width = getWidth();
 		int height = getHeight(); 
 		
-		double ratioX = (double)width/DRAWING_WIDTH;
-		double ratioY = (double)height/DRAWING_HEIGHT;
+		double ratioX = (double)width/WIDTH;
+		double ratioY = (double)height/HEIGHT;
 
 		((Graphics2D)g).scale(ratioX,ratioY);
 		
@@ -72,21 +84,31 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		//Fire.draw(g,this);
 		
 		pipes.drawPipes(g);
-		pipes.move();
-
+		//g.drawString(score, 20, 20);
 	}
 
-	public boolean doesRectangleSpriteCollide() {
+	public boolean doesBirdCollidePipe() {
 		Pipe pipe0 = pipes.getPipe();
 		if ((bird.turnToRectangle()).intersects(pipe0.turnTopPipeToRectangle()) || (bird.turnToRectangle()).intersects(pipe0.turnBottomPipeToRectangle())) { // Check if they intersect
-			collision = true;
+			collision1 = true;
 		} else {
-			collision = false;
+			collision1 = false;
 		}
 
-		return collision;
+		return collision1;
 	}
 	
+	public boolean doesBirdCollideCoin()
+	{
+		Pipe pipe0 = pipes.getPipe();
+		if ((bird.turnToRectangle()).intersects(pipe0.turnCoinToRectangle())) {
+			collision2 = true;
+		} else {
+			collision2 = false;
+		}
+		
+		return collision2;
+	}
 	/*
     public void actionPerformed(ActionEvent e, Graphics g) {
     	pipe.drawPipe(g, pipe, true);
@@ -119,13 +141,16 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			bird.jump();
 		}
+		
+		/*
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {//down button to make game easier
 			bird.down();
 			System.out.print("DN");
 		}
+		*/
 
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			if ( started==false ) {
+			if (started == false) {
 				started = true;
 				System.out.print("ENTER");
 			}
@@ -186,24 +211,41 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	}
 	
 	public void update (boolean started) {
-		if ( started==true )
-			bird.act();
+		if (started == true) {
+			//if (super.getY() < 530) {
+				bird.act();
+				pipes.move();
+
+			//}
+			
+			//else {
+				//gameStop();
+			//}
+		}
+			
+
 		//System.out.print("Updated");
 		
 		// collision check
-		collision = doesRectangleSpriteCollide();//check the object and bird touched
-		if ( collision==true )
+		collision1 = doesBirdCollidePipe(); //check the object and bird touched
+		if (collision1 == true) {
 			gameStop();
+		}
+		
+		collision2 = doesBirdCollideCoin();
+		if (collision2 == true) {
+			coin++;
+		}
 	}
 	
 	public void gameLoop() {
 		System.out.print("run");
-		while( running ) {
+		while(running) {
 			update(started);
 			repaint();
 			try {
 				//System.out.print("Sleep");
-				Thread.sleep(30);
+				Thread.sleep(17);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -211,12 +253,10 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		System.out.print("game stopped");
 	}
 
-	
-	
 	public void checkBird() {
 		int x = bird.getX() + bird.getWidth()/2;
 		int y = bird.getY() + bird.getHeight()/2;
-		if (x < 0 || x > DRAWING_WIDTH || y < 0 || y > DRAWING_HEIGHT)
+		if (x < 0 || x > WIDTH || y < 0 || y > HEIGHT)
 			bird= new Flappybird(380,0);
 	}
 
