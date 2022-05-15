@@ -24,9 +24,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
     //private Sprite Fire; 
     private Sprite background; 
     private ScreenMain m;
-    private boolean collision1 = false;
-    private boolean collision2 = false; 
-    
     private Thread gameThread;
     private boolean started = false;
     private boolean running = false;
@@ -41,8 +38,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		//Fire = new Sprite("obstacles.png",400,443,200,250);
 		
 		pipes = new ArrayListPipes ();
-		
-		collision1 = false;
 		started = false;
 		running = false;
 		
@@ -87,42 +82,39 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		//g.drawString(score, 20, 20);
 	}
 
+	public boolean isBirdInsideWindow() {
+		if (bird.getY() < 0 || bird.getY() > 540) {
+			return true;
+		}
+		
+		else {
+			return false;
+		}
+	}
+	
 	public boolean doesBirdCollidePipe() {
 		Pipe pipe0 = pipes.getPipe();
 		if ((bird.turnToRectangle()).intersects(pipe0.turnTopPipeToRectangle()) || (bird.turnToRectangle()).intersects(pipe0.turnBottomPipeToRectangle())) { // Check if they intersect
-			collision1 = true;
+			return true;
 		} else {
-			collision1 = false;
+			return false;
 		}
-
-		return collision1;
 	}
 	
 	public boolean doesBirdCollideCoin()
 	{
 		Pipe pipe0 = pipes.getPipe();
 		if ((bird.turnToRectangle()).intersects(pipe0.turnCoinToRectangle())) {
-			collision2 = true;
+			return true;
 		} else {
-			collision2 = false;
+			return false;
 		}
-		
-		return collision2;
 	}
 	/*
     public void actionPerformed(ActionEvent e, Graphics g) {
     	pipe.drawPipe(g, pipe, true);
     }
-    
-	/*
-	public void checkBird() {
-		int x = bird.getX() + bird.getWidth()/2;
-		int y = bird.getY() + bird.getHeight()/2;
-		if (x < 0 || x > DRAWING_WIDTH || y < 0 || y > DRAWING_HEIGHT)
-			bird = new Flappybird(100,250);
     */
-	
-
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -155,13 +147,9 @@ public class SimpleWindow extends JPanel implements KeyListener {
 				System.out.print("ENTER");
 			}
 		} 
-		
-//		else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-//			bird.move();	
-//		} 
 	}
 	
-/*	
+    /*	
 	public static void main(String[] args) {
 		JFrame w = new JFrame("Window");
 		w.setBounds(50, 50, 800, 600);
@@ -227,14 +215,20 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		//System.out.print("Updated");
 		
 		// collision check
-		collision1 = doesBirdCollidePipe(); //check the object and bird touched
+		boolean collision1 = isBirdInsideWindow();
 		if (collision1 == true) {
 			gameStop();
 		}
 		
-		collision2 = doesBirdCollideCoin();
+		boolean collision2 = doesBirdCollidePipe(); 
 		if (collision2 == true) {
+			gameStop();
+		}
+		
+		boolean collision3 = doesBirdCollideCoin();
+		if (collision3 == true) {
 			coin++;
+			System.out.print(coin);
 		}
 	}
 	
@@ -252,13 +246,4 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		}
 		System.out.print("game stopped");
 	}
-
-	public void checkBird() {
-		int x = bird.getX() + bird.getWidth()/2;
-		int y = bird.getY() + bird.getHeight()/2;
-		if (x < 0 || x > WIDTH || y < 0 || y > HEIGHT)
-			bird= new Flappybird(380,0);
-	}
-
-    
 }
