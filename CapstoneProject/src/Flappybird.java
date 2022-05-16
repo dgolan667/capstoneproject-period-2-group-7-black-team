@@ -26,18 +26,9 @@ public class Flappybird extends Sprite {
 
 	public void act() {
 		accelerate(0,0.2);
-		
-			super.act();
-		
+		super.act();	
 	}
-	
-	public void down() {
-		int y = 0; 
-		y+=5; 
-		super.setYVel(y);
-	}//dont delete it
 
-	
 	public Rectangle turnToRectangle () {
 		return new Rectangle(super.getX(), super.getY(), super.getWidth(), super.getHeight());
 	}
