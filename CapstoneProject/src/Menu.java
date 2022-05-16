@@ -32,7 +32,7 @@ public class Menu extends  JPanel implements ActionListener{
 	static void Character() {
 		Character();
 	}
-	
+	 
 	
 	public Menu() {
 		score = 0;
