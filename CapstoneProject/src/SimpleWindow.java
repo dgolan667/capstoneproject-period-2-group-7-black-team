@@ -40,7 +40,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	public SimpleWindow (ScreenMain m) {
 		super();
 		this.m = m;
-		bird = new Flappybird(100,250);
+		bird = new Flappybird("fish.png", 100,250);
 	    background = new Sprite ("background.png",0,0,800,600);
 		pipes = new ArrayListPipes ();
 		started = false;

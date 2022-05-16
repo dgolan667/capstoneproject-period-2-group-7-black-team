@@ -5,8 +5,8 @@ import javax.swing.*;
 import javax.swing.ImageIcon;
 
 public class Flappybird extends Sprite {
-	public Flappybird(int x, int y) {
-		this("dog.png",x,y,60,60);
+	public Flappybird(String character, int x, int y) {
+		this(character,x,y,60,60);
 	}
 
 	public Flappybird(String filename, int x, int y, int w, int h) {
