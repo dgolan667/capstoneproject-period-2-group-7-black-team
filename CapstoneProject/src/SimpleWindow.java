@@ -30,6 +30,9 @@ public class SimpleWindow extends JPanel implements KeyListener {
     private boolean started = false;
     private boolean running = false;
     private boolean gameOver = false;
+    private Character character;
+    private StartingMenu startMenu;
+    
     
     private long startTime = 0L;
     private long endTime = 0L;
@@ -197,20 +200,23 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		
 		JButton restartButton = new JButton("Restart");
 		restartButton.setBackground(Color.ORANGE);
-		restartButton.setBounds(390,320,90,50);
+		restartButton.setBounds(370,320,90,50);
 		this.add(restartButton);
 		restartButton.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
 				System.out.print("Restart");
 
 				//restart();
+					
+				
+				
 			}
 		});
 		
 
 		JButton exitButton = new JButton("Exit");
 		exitButton.setBackground(Color.GREEN);
-		exitButton.setBounds(300,320,90,50);
+		exitButton.setBounds(280,320,90,50);
 		this.add(exitButton);		
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
@@ -221,12 +227,13 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		
 		JButton CharacterButton = new JButton("Character");
 		CharacterButton.setBackground(Color.WHITE);
-		CharacterButton.setBounds(480,320,90,50);
+		CharacterButton.setBounds(460,320,90,50);
 		this.add(CharacterButton);
 		CharacterButton.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
 				System.out.print("Character");
 		
+				character.chooseCharacter();
 			}
 		});
 		repaint();

@@ -8,6 +8,7 @@ public class StartingMenu extends JPanel implements ActionListener {
 	private ScreenMain a;
 	
 		public StartingMenu(ScreenMain a) {
+			
 			this.a = a;
 			JPanel p = new JPanel();
 			JPanel p1 = new JPanel();
