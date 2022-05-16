@@ -6,7 +6,7 @@ public class ArrayListPipes {
     
     public ArrayListPipes() {
     	super();
-    	pipes = new ArrayList <Pipe> ();
+    	pipes = new ArrayList <> ();
     	
     	int x = 400;
     	for (int i = 0; i < 1000; i++) { // modify later as the number of pipes might be changed
@@ -32,11 +32,13 @@ public class ArrayListPipes {
 		}
 	}
 
-	
-	public Pipe getPipe () {
-		return pipes.get(1);
+	public Pipe getPipe (int i) {
+		return pipes.get(i);
 	}
 	
+	public int getSize () {
+		return pipes.size();
+	}
 	public void remove () {
 		
 	}

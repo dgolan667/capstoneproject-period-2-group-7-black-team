@@ -20,18 +20,10 @@ public class Flappybird extends Sprite {
 	
 	public void jump() {
 		int y = 0; 
-		y-=5; 
+		y -= 5; 
 		super.setYVel(y);
 	}
 
-	
-	public void down() {
-		int y = 0; 
-		y+=5; 
-		super.setYVel(y);
-	}
-	
-	
 	public void act() {
 		accelerate(0,0.2);
 		super.act();

@@ -10,7 +10,6 @@ public class Pipe {
 	private int pipeVel = -4;
 	private double acceleration = 1.01;
 	private final int w = 50;
-	private Image image;
 	
 	public Pipe (int x, int y, int w, int h) {
 		this.x = x;
@@ -19,8 +18,6 @@ public class Pipe {
 		this.h1 = h;
 		y2 = h1 + gap;
 		h2 = 600 - y2;
-		
-		image = new ImageIcon("Coin.png").getImage();
 	}
 	
 	public void draw (Graphics g) {
