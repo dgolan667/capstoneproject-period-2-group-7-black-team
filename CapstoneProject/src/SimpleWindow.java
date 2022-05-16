@@ -192,7 +192,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		
 		JButton restartButton = new JButton("Restart");
 		restartButton.setBackground(Color.ORANGE);
-		restartButton.setBounds(350,400,90,50);
+		restartButton.setBounds(350,350,90,50);
 		this.add(restartButton);
 		restartButton.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
@@ -205,7 +205,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 
 		JButton exitButton = new JButton("Exit");
 		exitButton.setBackground(Color.GREEN);
-		exitButton.setBounds(350,450,90,50);
+		exitButton.setBounds(350,400,90,50);
 		this.add(exitButton);		
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
