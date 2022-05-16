@@ -12,7 +12,6 @@ public class Sprite {
 	private Image image;
 	
 	private double xVel, yVel;
-	private double friction = .9;
 	
 	public Sprite(String filename, int x, int y, int w, int h) {
 		this((new ImageIcon(filename)).getImage(),x,y,w,h);
@@ -55,14 +54,6 @@ public class Sprite {
 		return height;
 	}
 	
-	public boolean isPointInside(double x, double y) {
-		if (x >= this.x && y >= this.y && x <= this.x+width && y <= this.y+height) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-		
 	public void jump() {
 		yVel = -100;
 	    this.y += yVel;
@@ -71,12 +62,7 @@ public class Sprite {
 	public void act() {
 		this.y += yVel;
 	}
-	
-	public void undoAct() {
-		this.x -= xVel;
-		this.y -= yVel;
-	}
-	
+
 	public void setXVel(int x) {
 		this.xVel = x;
 	}

@@ -6,7 +6,7 @@ public class ArrayListPipes {
     
     public ArrayListPipes() {
     	super();
-    	pipes = new ArrayList <Pipe> ();
+    	pipes = new ArrayList <> ();
     	
     	int x = 600;
     	for (int i = 0; i < 1000; i++) { // modify later as the number of pipes might be changed
@@ -14,6 +14,10 @@ public class ArrayListPipes {
     		pipes.add(new Pipe(x, 0, 30, (int)(Math.random()*200)));//making the pipe length and distance different
     		x += 200 + (int)(Math.random()*400);
 
+    	int x = 500;
+    	for (int i = 0; i < 1000; i++) { // modify later as the number of pipes might be changed
+    		pipes.add(new Pipe(x, 0, 50, (int)(Math.random()*420)));
+    		x += 300;
     	}
     }
     
@@ -41,6 +45,23 @@ public class ArrayListPipes {
 	
 	public int getSize() {
 		return pipes.size();
+	public Pipe getPipe (int i) {
+		return pipes.get(i);
+	}
+	
+	public int getSize () {
+		return pipes.size();
+	}
+
+	public boolean checkPipe (Flappybird bird) {
+		boolean b = false;
+		for (Pipe pipe : pipes) {
+			if ((bird.turnToRectangle()).intersects(pipe.turnBottomPipeToRectangle()) || (bird.turnToRectangle()).intersects(pipe.turnTopPipeToRectangle())) {
+				b = true;
+			}
+		}
+		
+		return b;
 	}
 
 }
