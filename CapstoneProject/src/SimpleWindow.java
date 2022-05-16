@@ -76,12 +76,12 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		}
 		
 		if (gameOver) {
-			g.setColor(Color.BLUE);
+			g.setColor(Color.BLACK);
 			g.getFont();
 			Font currentFont = g.getFont();
 			Font newFont = currentFont.deriveFont(currentFont.getSize() * 1.0F);
             g.setFont(newFont);
-			g.drawString("SCORE: " + elapsedTime, WIDTH/8, HEIGHT/4);
+			g.drawString("SCORE: " + elapsedTime, WIDTH/4, HEIGHT/4);
 		}
 		
 	}
@@ -198,7 +198,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			public void actionPerformed (ActionEvent e) {
 				System.out.print("Restart");
 
-				//restart();
+				restart();
 			}
 		});
 		
