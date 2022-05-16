@@ -30,7 +30,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
     private boolean started = false;
     private boolean running = false;
     private boolean gameOver = false;
-    private Character character;
+    private String character;
     private StartingMenu startMenu;
     
     
@@ -43,7 +43,21 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	public SimpleWindow (ScreenMain m) {
 		super();
 		this.m = m;
-		bird = new Flappybird(100,250);
+		
+		double i = Math.random();
+		if (i < 1/3) {
+			character = "bird.png";
+		}
+		
+		else if (i >= 1/3 && i < 2/3) {
+			character = "bluebird.png";
+		}
+		
+		else if (i > 2/3) {
+			character = "dog.png";
+		}
+		
+		bird = new Flappybird(character, 100, 250);
 	    background = new Sprite ("background.png",0,0,800,600);
 		pipes = new ArrayListPipes ();
 		started = false;
