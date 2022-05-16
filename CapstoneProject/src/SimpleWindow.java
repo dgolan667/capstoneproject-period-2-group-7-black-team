@@ -207,6 +207,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 				System.out.print("Restart");
 
 				//restart();
+				//SimpleWindow(ScreenMain);
 					
 				
 				
@@ -233,7 +234,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			public void actionPerformed (ActionEvent e) {
 				System.out.print("Character");
 		
-				character.chooseCharacter();
+				//character.chooseCharacter();
 			}
 		});
 		repaint();
