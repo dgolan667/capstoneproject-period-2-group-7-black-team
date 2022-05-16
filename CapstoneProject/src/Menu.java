@@ -11,17 +11,27 @@ public class Menu extends  JPanel implements ActionListener{
 	private int score;
 	private JButton button1, button2;
 	private StartingMenu Menu;
+	private String message;
 	
+	private SimpleWindow Window;
 	
 	JLabel guest = new JLabel("Guest");
 	
 	
-	static void ScreenMain(){
+	public Menu (ScreenMain S) {
+		super();
+		message = "Score"+ score;
 		
 	}
 	
+	
+	
+	static void ScreenMain(){
+		ScreenMain();
+	}
+	
 	static void Character() {
-		
+		Character();
 	}
 	
 	
@@ -39,17 +49,8 @@ public class Menu extends  JPanel implements ActionListener{
 		
 		
 	}
-/*
- * JButton button = new JButton("Play the Game!");
-		button.addActionListener(this);
-		p.add(button);
-		add(p);
-	}
-	
-	public void actionPerformed(ActionEvent e) {
-		w.changePanel("2");
-	}*/
 
+	
 
 	
 
