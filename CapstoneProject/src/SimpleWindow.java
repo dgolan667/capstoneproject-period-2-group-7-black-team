@@ -186,6 +186,11 @@ public class SimpleWindow extends JPanel implements KeyListener {
 
 	}
 	
+	
+	/*public void restart() {
+		SimpleWindow(ScreenMain m);
+	}*/
+	
 	public void gameEnd() {
 		gameOver = true;
 		elapsedTime = (endTime - startTime)/1000F;
@@ -213,6 +218,17 @@ public class SimpleWindow extends JPanel implements KeyListener {
 				System.exit(0);
 			}
 		});		
+		
+		JButton CharacterButton = new JButton("Character");
+		CharacterButton.setBackground(Color.WHITE);
+		CharacterButton.setBounds(480,320,90,50);
+		this.add(CharacterButton);
+		CharacterButton.addActionListener(new ActionListener() {
+			public void actionPerformed (ActionEvent e) {
+				System.out.print("Character");
+		
+			}
+		});
 		repaint();
 	}
 
