@@ -35,7 +35,7 @@ public class Flappybird extends Sprite {
 		int y = 0; 
 		y+=5; 
 		super.setYVel(y);
-	}//dont delete it
+	}
 
 	
 	public Rectangle turnToRectangle () {

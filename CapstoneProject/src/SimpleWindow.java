@@ -74,6 +74,16 @@ public class SimpleWindow extends JPanel implements KeyListener {
             g.setFont(newFont);
 			g.drawString("GAME OVER", WIDTH/4, HEIGHT/2);
 		}
+		
+		if (gameOver) {
+			g.setColor(Color.BLUE);
+			g.getFont();
+			Font currentFont = g.getFont();
+			Font newFont = currentFont.deriveFont(currentFont.getSize() * 1.0F);
+            g.setFont(newFont);
+			g.drawString("SCORE: " + elapsedTime, WIDTH/8, HEIGHT/4);
+		}
+		
 	}
 	
 	public boolean isBirdInsideWindow() {
