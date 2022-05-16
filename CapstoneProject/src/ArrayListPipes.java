@@ -8,10 +8,10 @@ public class ArrayListPipes {
     	super();
     	pipes = new ArrayList <> ();
     	
-    	int x = 400;
+    	int x = 500;
     	for (int i = 0; i < 1000; i++) { // modify later as the number of pipes might be changed
-    		pipes.add(new Pipe(x, 0, 50, (int)(Math.random()*450)));
-    		x += 250;
+    		pipes.add(new Pipe(x, 0, 50, (int)(Math.random()*420)));
+    		x += 300;
     	}
     }
     
