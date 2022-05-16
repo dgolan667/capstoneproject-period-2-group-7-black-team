@@ -198,7 +198,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			public void actionPerformed (ActionEvent e) {
 				System.out.print("Restart");
 
-				restart();
+				//restart();
 			}
 		});
 		

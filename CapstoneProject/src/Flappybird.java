@@ -1,5 +1,6 @@
 import java.awt.Image;
 import java.awt.Rectangle;
+import javax.swing.*;
 
 import javax.swing.ImageIcon;
 
