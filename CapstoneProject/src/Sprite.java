@@ -11,7 +11,7 @@ public class Sprite {
 	private int width, height;
 	private Image image;
 	
-	private double xVel, yVel;
+	private double yVel;
 	
 	public Sprite(String filename, int x, int y, int w, int h) {
 		this((new ImageIcon(filename)).getImage(),x,y,w,h);
@@ -63,16 +63,11 @@ public class Sprite {
 		this.y += yVel;
 	}
 
-	public void setXVel(int x) {
-		this.xVel = x;
-	}
-	
 	public void setYVel(int y) {
 		this.yVel = y;
 	}
 	
 	public void accelerate(double x, double y) {
-		this.xVel += x;
 		this.yVel += y;
 	}
 }
