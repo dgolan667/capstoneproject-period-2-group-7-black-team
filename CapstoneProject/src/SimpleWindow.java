@@ -6,6 +6,7 @@ import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.Font;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -24,6 +25,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
     private Thread gameThread;
     private boolean started = false;
     private boolean running = false;
+    private boolean gameOver = false;
 
     // CONSTRUCTORS
 	public SimpleWindow (ScreenMain m) {
@@ -54,6 +56,15 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		background.draw(g, this);
 		bird.draw(g,this);
 		pipes.drawPipes(g);
+		
+		if (gameOver) {
+			g.setColor(Color.BLUE);
+			g.getFont();
+			Font currentFont = g.getFont();
+			Font newFont = currentFont.deriveFont(currentFont.getSize() * 5.0F);
+            g.setFont(newFont);
+			g.drawString("GAME OVER", WIDTH/4, HEIGHT/2);
+		}
 	}
 
 	public boolean isBirdInsideWindow() {
@@ -67,13 +78,8 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	}
 	
 	public boolean doesBirdCollidePipe() {	
-		int i = 0;
-		if ((bird.turnToRectangle()).intersects(pipes.getPipe(i).turnTopPipeToRectangle()) || (bird.turnToRectangle()).intersects(pipes.getPipe(i).turnBottomPipeToRectangle())) { // Check if they intersect
-			return true;
-		} else {
-			i++;
-			return false;    
-		}
+		boolean b = pipes.checkPipe(bird);
+		return b;
 	}
 	
 	public boolean doesBirdCollideCoin()
@@ -135,6 +141,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		boolean collision = doesBirdCollidePipe();
 		if (isBirdInsideWindow() == true || collision == true) {
 			gameStop();
+			gameOver = true;
 		}
 		
 		if (doesBirdCollideCoin()) {

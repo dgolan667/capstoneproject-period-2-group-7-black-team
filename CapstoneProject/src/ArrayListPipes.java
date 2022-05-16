@@ -39,7 +39,15 @@ public class ArrayListPipes {
 	public int getSize () {
 		return pipes.size();
 	}
-	public void remove () {
+
+	public boolean checkPipe (Flappybird bird) {
+		boolean b = false;
+		for (Pipe pipe : pipes) {
+			if ((bird.turnToRectangle()).intersects(pipe.turnBottomPipeToRectangle()) || (bird.turnToRectangle()).intersects(pipe.turnTopPipeToRectangle())) {
+				b = true;
+			}
+		}
 		
+		return b;
 	}
 }
