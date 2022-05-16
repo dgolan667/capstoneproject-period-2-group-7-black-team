@@ -27,6 +27,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
     private Sprite background; 
     private ScreenMain m;
     private Thread gameThread;
+    private String character;
     private boolean started = false;
     private boolean running = false;
     private boolean gameOver = false;
@@ -40,7 +41,17 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	public SimpleWindow (ScreenMain m) {
 		super();
 		this.m = m;
-		bird = new Flappybird("fish.png", 100,250);
+		
+        double i = Math.random();
+        if (i <= 0.5) {
+        	character = "dog.png";
+        }
+        
+        else if (i > 0.5) {
+        	character = "bird.png";
+        }
+        
+		bird = new Flappybird(character, 100,250);
 	    background = new Sprite ("background.png",0,0,800,600);
 		pipes = new ArrayListPipes ();
 		started = false;

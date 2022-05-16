@@ -24,7 +24,6 @@ public class Menu extends  JPanel implements ActionListener{
 	}
 	
 	
-	
 	static void ScreenMain(){
 		ScreenMain();
 	}
@@ -32,7 +31,6 @@ public class Menu extends  JPanel implements ActionListener{
 	static void Character() {
 		Character();
 	}
-	 
 	
 	public Menu() {
 		score = 0;
@@ -40,29 +38,22 @@ public class Menu extends  JPanel implements ActionListener{
 		button1.addActionListener(this);
 		button2 = new JButton("Character");	
 		button2.addActionListener(this);
-		
-//		
-		
+	
 		Container c = getRootPane();
 		c.setLayout(new FlowLayout());
 		c.add(button1);
 		c.add(button2);
-		
-		
 	}
-
-	
-
-	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==(button1))
 		{
-		ScreenMain();
+		    ScreenMain();
 		}
+		
 		else if(e.getSource()==(button2)) {
-		Character();	
+		    Character();	
 		} 
 	}
 	
