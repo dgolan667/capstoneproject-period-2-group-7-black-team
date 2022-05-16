@@ -17,7 +17,7 @@ public class ScreenMain extends JFrame{
 	    
 		StartingMenu panel1 = new StartingMenu(this);    
 	    SimpleWindow panel2 = new SimpleWindow(this);
-	    
+	 //   Character panel3 = new Character(this);
 	    
 	
 	    BirdPanel.add(panel1,"1"); 
