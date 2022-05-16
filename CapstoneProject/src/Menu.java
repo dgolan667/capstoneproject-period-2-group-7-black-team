@@ -1,4 +1,3 @@
-import javax.swing.JButton;
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
@@ -42,6 +41,8 @@ public class Menu extends  JPanel implements ActionListener{
 		button2 = new JButton("Character");	
 		button2.addActionListener(this);
 		
+//		
+		
 		Container c = getRootPane();
 		c.setLayout(new FlowLayout());
 		c.add(button1);
@@ -62,7 +63,7 @@ public class Menu extends  JPanel implements ActionListener{
 		}
 		else if(e.getSource()==(button2)) {
 		Character();	
-		}
+		} 
 	}
 	
 	
