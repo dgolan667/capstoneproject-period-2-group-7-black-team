@@ -12,7 +12,7 @@ public class Sprite {
 	private Image image;
 	
 	private double yVel;
-	 
+		 
 	public Sprite(String filename, int x, int y, int w, int h) {
 		this((new ImageIcon(filename)).getImage(),x,y,w,h);
 	}

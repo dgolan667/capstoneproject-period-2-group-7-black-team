@@ -5,6 +5,14 @@ import javax.swing.*;
 import javax.swing.ImageIcon;
 
 public class Flappybird extends Sprite {
+	
+	private float a , b , vx , vy;
+
+	
+	public Flappybird(int x, int y) {
+		this("bluebird.png",x,y,60,60);
+	}
+	
 	public Flappybird(String character, int x, int y) {
 		this(character,x,y,60,60);
 	}
@@ -29,9 +37,20 @@ public class Flappybird extends Sprite {
 		accelerate(0,0.2);
 		super.act();	
 	}
+	
+		
 
 	public Rectangle turnToRectangle () {
 		return new Rectangle(super.getX(), super.getY(), super.getWidth(), super.getHeight());
+	}
+
+	public void reset() {
+		// TODO Auto-generated method stub
+
+		a = 800/2;
+		b = 800/2;
+		vx = vy = 0;
+		
 	}
 
 }

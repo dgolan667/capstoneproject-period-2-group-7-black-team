@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionListener;
 import java.awt.*;
 import java.awt.event.*;
@@ -33,6 +34,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
     private boolean gameOver = false;
     private String character, backgroundName;
     private StartingMenu startMenu;
+    private ArrayList<Rectangle> restartButton;
     
     
     private long startTime = 0L;
@@ -197,6 +199,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	}
 	
 	public void gameLoop() {
+
 		System.out.print("run");
 		startTime = System.currentTimeMillis();
 		while( running ) {
@@ -210,6 +213,9 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		}
 		endTime = System.currentTimeMillis();
 		gameEnd();
+		
+		
+		
 
 	}
 	
@@ -229,16 +235,15 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		restartButton.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
 				System.out.print("Restart");
-
-				//restart();
-				//SimpleWindow(ScreenMain);
-					
+				
+				SimpleWindow();
 				
 				
 			}
 		});
 		
 
+		
 		JButton exitButton = new JButton("Exit");
 		exitButton.setBackground(Color.GREEN);
 		exitButton.setBounds(280,320,90,50);
@@ -250,7 +255,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			}
 		});		
 		
-		JButton CharacterButton = new JButton("Character");
+		/*JButton CharacterButton = new JButton("Character");
 		CharacterButton.setBackground(Color.WHITE);
 		CharacterButton.setBounds(460,320,90,50);
 		this.add(CharacterButton);
@@ -260,7 +265,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		
 				//character.chooseCharacter();
 			}
-		});
+		});*/
 		repaint();
 	}
 
@@ -276,5 +281,17 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		
 	}
 
+	public void SimpleWindow () {
+		
+		bird = new Flappybird(100,250);
+	    background = new Sprite ("background.png",0,0,800,600);
+		pipes = new ArrayListPipes ();
+		started = true;
+		running = true;
+		gameOver = true;
+		
+		
+		start();
+	}
 
 }
