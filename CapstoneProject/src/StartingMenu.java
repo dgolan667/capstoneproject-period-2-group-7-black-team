@@ -38,5 +38,9 @@ public class StartingMenu extends JPanel implements ActionListener {
 				a.changePanel("3");
 			}
 		}
+		
+		public void restart() {
+			
+		}
 
 }

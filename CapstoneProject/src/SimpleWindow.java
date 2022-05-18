@@ -33,8 +33,9 @@ public class SimpleWindow extends JPanel implements KeyListener {
     private boolean running = false;
     private boolean gameOver = false;
     private String character, backgroundName;
-    private StartingMenu startMenu;
-    private ArrayList<Rectangle> restartButton;
+    // private Rectangle restart;
+	// private Rectangle quit;
+	private ScreenMain newStart;
     
     
     private long startTime = 0L;
@@ -79,6 +80,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		coins = new ArrayListCoins ();
 		started = false;
 		running = false;
+		
 		
 		start();
 	}
@@ -224,9 +226,21 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		SimpleWindow(ScreenMain m);
 	}*/
 	
+	public void DrawRect(Graphics g) {
+		
+		DrawRect(370,320,90,50);
+		
+		
+	}
+	
+	private void DrawRect(int i, int j, int k, int l) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public void gameEnd() {
 		gameOver = true;
-		elapsedTime = (endTime - startTime)/1000F;
+		elapsedTime = (endTime - startTime)/1000F;		
 		
 		JButton restartButton = new JButton("Restart");
 		restartButton.setBackground(Color.ORANGE);
@@ -236,13 +250,12 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			public void actionPerformed (ActionEvent e) {
 				System.out.print("Restart");
 				
-				SimpleWindow();
-				
-				
+				//newStart = new ScreenMain(TOOL_TIP_TEXT_KEY);
+				newStart = new ScreenMain(TOOL_TIP_TEXT_KEY);
 			}
 		});
 		
-
+	
 		
 		JButton exitButton = new JButton("Exit");
 		exitButton.setBackground(Color.GREEN);
@@ -268,6 +281,10 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		});*/
 		repaint();
 	}
+	
+	
+	
+	
 
 	@Override
 	public void keyTyped(KeyEvent e) {
