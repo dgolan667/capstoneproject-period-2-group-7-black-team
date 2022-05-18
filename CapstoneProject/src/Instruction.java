@@ -22,8 +22,8 @@ import javax.swing.JPanel;
 public class Instruction extends JPanel implements ActionListener {
 
 	private ScreenMain i;
-	private JButton back, start; 
-	private String message1, message2, message3;
+	private JButton start; 
+	private String message1, message2, message3, message4;
 	
 	
 	public Instruction(ScreenMain i) {
@@ -32,16 +32,19 @@ public class Instruction extends JPanel implements ActionListener {
 		JPanel p = new JPanel(); 
 		setBackground(Color.WHITE);
 		
-		back = new JButton(" Back ");
-		back.addActionListener(this);
-		back.setBackground(Color.WHITE);
-		p.add(back);
+		start = new JButton(" Start ");
+		start.addActionListener(this);
+		start.setBackground(Color.WHITE);
+		start.setBounds(370,320,90,50);
+		p.add(start);
 		add(p);
 		
 		
-		message1 = "𝓘𝓷𝓼𝓽𝓻𝓾𝓬𝓽𝓲𝓸𝓷𝓼: ";
-		message2 = "- 𝕡𝕣𝕖𝕤𝕤 𝕥𝕙𝕖 𝕤𝕡𝕒𝕔𝕖 𝕓𝕒𝕣 𝕥𝕠 𝕤𝕥𝕒𝕣𝕥 𝕥𝕙𝕖 𝕘𝕒𝕞𝕖";
-		message3 = "- 𝕦𝕤𝕖 𝕥𝕙𝕖 𝕤𝕡𝕒𝕔𝕖 𝕓𝕒𝕣 𝕠𝕣 𝕦𝕡 𝕒𝕣𝕣𝕠𝕨 𝕜𝕖𝕪 𝕥𝕠 𝕞𝕒𝕜𝕖 𝕥𝕙𝕖 𝕔𝕙𝕒𝕣𝕒𝕔𝕥𝕖𝕣 𝕛𝕦𝕞𝕡";
+		
+		message1 = "Instructions ";
+		message2 = "- Press the space bar to start the game";
+		message3 = "- Jump: Use the space bar or the up arrow key";
+		message4 = "- Collect coins to get points"; 
 		
 	}
 	
@@ -74,13 +77,19 @@ public class Instruction extends JPanel implements ActionListener {
 		int strWidth2 = g.getFontMetrics().stringWidth(message3);
 		g.drawString(message3, 35, 150);
 		
+		
+		g.setColor(Color.BLACK);
+		g.setFont(new Font("Monospaced",Font.BOLD, 20));
+		int strWidth3 = g.getFontMetrics().stringWidth(message3);
+		g.drawString(message4, 35, 200);
+		
 	}
 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == back) {
-			i.changePanel("1");
+		if (e.getSource() == start) {
+			i.changePanel("2");
 		}
 		
 	}

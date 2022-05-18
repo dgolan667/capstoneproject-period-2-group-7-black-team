@@ -25,6 +25,24 @@ public class Pipe {
 		x += pipeVel;
 	}
 	
+	public void moveVertically () {
+	    if (h1 < 420) {
+			h1 += 1;
+	    }
+	    
+	    else {
+	    	h1 -= 1;
+	    }
+
+	    if (y2 > 180) {
+			y2 -= 1;
+	    }
+	    
+	    else {
+	    	h2 += 1;
+	    }
+	}
+	
 	public Rectangle turnTopPipeToRectangle() {
 		return new Rectangle(x, y1, w, h1);
 	}

@@ -44,6 +44,14 @@ public class SimpleWindow extends JPanel implements KeyListener {
 
 
     // CONSTRUCTORS
+    
+    /* New characters (c) and background (b) added: 
+     * amongus.png (c) - space.png (b)
+     * character.png (c) - grass.png (b) 
+     * mario.png (c) - background.png (b)
+     * spongebob.png (c) - spongebob2.png (b) 
+     * superman.png (c) - superman2.png (b) 
+     */
 	public SimpleWindow (ScreenMain m) {
 		super();
 		this.m = m;
@@ -72,7 +80,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		else if (i > 0.8) {
 			character = "camel.png";
 			backgroundName = "desert.png";
-		}
+		} 
 
 		bird = new Flappybird(character, 100, 250);
 	    background = new Sprite (backgroundName, 0, 0, 800, 600);
@@ -108,15 +116,20 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		Font newFont = currentFont.deriveFont(currentFont.getSize() * 4.0F);
         g.setFont(newFont);
 		String coinString = "Coin: " + coin;
+		g.setColor(Color.GREEN);
+		
+		String coinString1 = "Score: " + coin;
 		g.setColor(Color.RED);
-		g.drawString(coinString, 10, 50);
+		g.drawString(coinString1, 10, 50);
 		
 		if (gameOver) {
 			g.setColor(Color.BLUE);
-			g.drawString("GAME OVER", WIDTH/4, HEIGHT/2);
+			g.drawString("GAME OVER", WIDTH/4, 3*HEIGHT/4);
 			
 			g.setColor(Color.BLACK);
-			g.drawString("SCORE: " + elapsedTime, WIDTH/4, HEIGHT/4);
+			g.drawString("FLYING TIME: " + elapsedTime + " s", WIDTH/4, HEIGHT/2);
+			
+			g.drawString("SCORE: " + coin, WIDTH/4, HEIGHT/4);
 		}
 		
 	}
@@ -157,6 +170,15 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	}
 	*/
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
     public void keyPressed(KeyEvent e) {
     	if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_SPACE) {
 			if (started == false)
@@ -215,10 +237,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		}
 		endTime = System.currentTimeMillis();
 		gameEnd();
-		
-		
-		
-
 	}
 	
 	
