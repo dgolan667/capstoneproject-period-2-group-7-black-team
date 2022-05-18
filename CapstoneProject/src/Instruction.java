@@ -39,9 +39,9 @@ public class Instruction extends JPanel implements ActionListener {
 		add(p);
 		
 		
-		message1 = "𝓘𝓷𝓼𝓽𝓻𝓾𝓬𝓽𝓲𝓸𝓷𝓼: ";
-		message2 = "- 𝕡𝕣𝕖𝕤𝕤 𝕥𝕙𝕖 𝕤𝕡𝕒𝕔𝕖 𝕓𝕒𝕣 𝕥𝕠 𝕤𝕥𝕒𝕣𝕥 𝕥𝕙𝕖 𝕘𝕒𝕞𝕖";
-		message3 = "- 𝕦𝕤𝕖 𝕥𝕙𝕖 𝕤𝕡𝕒𝕔𝕖 𝕓𝕒𝕣 𝕠𝕣 𝕦𝕡 𝕒𝕣𝕣𝕠𝕨 𝕜𝕖𝕪 𝕥𝕠 𝕞𝕒𝕜𝕖 𝕥𝕙𝕖 𝕔𝕙𝕒𝕣𝕒𝕔𝕥𝕖𝕣 𝕛𝕦𝕞𝕡";
+		message1 = "Instructions ";
+		message2 = "- Press the space bar to start the game";
+		message3 = "- Use the space bar or the up arrow key to make the character jump";
 		
 	}
 	
