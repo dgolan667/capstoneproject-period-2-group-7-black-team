@@ -35,7 +35,6 @@ public class Instruction extends JPanel implements ActionListener {
 		start = new JButton(" Start ");
 		start.addActionListener(this);
 		start.setBackground(Color.WHITE);
-		start.setBounds(370,320,90,50);
 		p.add(start);
 		add(p);
 		
