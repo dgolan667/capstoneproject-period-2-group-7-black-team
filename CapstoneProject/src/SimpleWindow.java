@@ -115,14 +115,19 @@ public class SimpleWindow extends JPanel implements KeyListener {
         g.setFont(newFont);
 		String coinString = "Coin: " + coin;
 		g.setColor(Color.GREEN);
-		g.drawString(coinString, 10, 50);
+		
+		String coinString1 = "Score: " + coin;
+		g.setColor(Color.RED);
+		g.drawString(coinString1, 10, 50);
 		
 		if (gameOver) {
 			g.setColor(Color.BLUE);
-			g.drawString("GAME OVER", WIDTH/4, HEIGHT/2);
+			g.drawString("GAME OVER", WIDTH/4, 3*HEIGHT/4);
 			
 			g.setColor(Color.BLACK);
-			g.drawString("SCORE: " + elapsedTime, WIDTH/4, HEIGHT/4);
+			g.drawString("FLYING TIME: " + elapsedTime + " s", WIDTH/4, HEIGHT/2);
+			
+			g.drawString("SCORE: " + coin, WIDTH/4, HEIGHT/4);
 		}
 		
 	}
@@ -163,6 +168,15 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	}
 	*/
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
     public void keyPressed(KeyEvent e) {
     	if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_SPACE) {
 			if (started == false)
@@ -221,10 +235,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		}
 		endTime = System.currentTimeMillis();
 		gameEnd();
-		
-		
-		
-
 	}
 	
 	
