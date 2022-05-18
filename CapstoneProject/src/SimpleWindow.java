@@ -25,13 +25,14 @@ public class SimpleWindow extends JPanel implements KeyListener {
     private int coin;
     private Flappybird bird;
     private ArrayListPipes pipes;
+    private ArrayListCoins coins;
     private Sprite background; 
     private ScreenMain m;
     private Thread gameThread;
     private boolean started = false;
     private boolean running = false;
     private boolean gameOver = false;
-    private Character character;
+    private String character, backgroundName;
     private StartingMenu startMenu;
     private ArrayList<Rectangle> restartButton;
     
@@ -45,9 +46,37 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	public SimpleWindow (ScreenMain m) {
 		super();
 		this.m = m;
-		bird = new Flappybird(100,250);
-	    background = new Sprite ("background.png",0,0,800,600);
+		
+		double i = Math.random();
+		if (i < 0.2) {
+			character = "bird.png";
+			backgroundName = "sea.png";
+		}
+		
+		else if (i >= 0.2 && i < 0.4) {
+			character = "bluebird.png";
+			backgroundName = "forest.png";
+		}
+		
+		else if (i >= 0.4 && i < 0.6) {
+			character = "dog.png";
+			backgroundName = "city.png";
+		}
+		
+		else if (i >= 0.6 && i < 0.8) {
+			character = "ghost.png";
+			backgroundName = "night.png";
+		}
+		
+		else if (i > 0.8) {
+			character = "camel.png";
+			backgroundName = "desert.png";
+		}
+
+		bird = new Flappybird(character, 100, 250);
+	    background = new Sprite (backgroundName, 0, 0, 800, 600);
 		pipes = new ArrayListPipes ();
+		coins = new ArrayListCoins ();
 		started = false;
 		running = false;
 		
@@ -70,22 +99,21 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		background.draw(g, this);
 		bird.draw(g,this);
 		pipes.drawPipes(g);
+		coins.drawCoins(g);
+		
+		g.getFont();
+		Font currentFont = g.getFont();
+		Font newFont = currentFont.deriveFont(currentFont.getSize() * 4.0F);
+        g.setFont(newFont);
+		String coinString = "Coin: " + coin;
+		g.setColor(Color.RED);
+		g.drawString(coinString, 10, 50);
 		
 		if (gameOver) {
 			g.setColor(Color.BLUE);
-			g.getFont();
-			Font currentFont = g.getFont();
-			Font newFont = currentFont.deriveFont(currentFont.getSize() * 5.0F);
-            g.setFont(newFont);
 			g.drawString("GAME OVER", WIDTH/4, HEIGHT/2);
-		}
-		
-		if (gameOver) {
+			
 			g.setColor(Color.BLACK);
-			g.getFont();
-			Font currentFont = g.getFont();
-			Font newFont = currentFont.deriveFont(currentFont.getSize() * 1.0F);
-            g.setFont(newFont);
 			g.drawString("SCORE: " + elapsedTime, WIDTH/4, HEIGHT/4);
 		}
 		
@@ -102,20 +130,15 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	}
 	
 	public boolean doesBirdCollidePipe() {	
-		boolean b = pipes.checkPipe(bird);
+		boolean b = pipes.checkPipeCollision(bird);
 		return b;
 		
 	}
 	
 	public boolean doesBirdCollideCoin()
 	{
-		int i = 0;
-		if ((bird.turnToRectangle()).intersects(pipes.getPipe(i).turnCoinToRectangle())) {
-			return true;
-		} else {
-			i++;
-			return false;
-		}
+		boolean b = coins.checkCoinCollision(bird);
+		return b;
 	}
 	
     /*	
@@ -160,6 +183,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		if (started == true) {
 			bird.act();	
 			pipes.move();
+			coins.move();
 		}
 
 		// collision check

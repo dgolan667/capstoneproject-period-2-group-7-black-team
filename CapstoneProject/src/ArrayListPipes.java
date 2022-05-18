@@ -20,11 +20,6 @@ public class ArrayListPipes {
 	public void drawPipes(Graphics g) {
         for (int i = 0; i < pipes.size(); i++) {
         	pipes.get(i).draw(g);
-        	
-        	double j = i/5.0;
-        	if (j == (int)j) {
-        		pipes.get((int)j*5).drawCoin(g);
-        	}
         }
 	}
 	
@@ -34,17 +29,7 @@ public class ArrayListPipes {
 		}
 	}
 
-	
-	public Pipe getPipe (int i) {
-		return pipes.get(1);
-	}
-	
-	
-	public int getSize () {
-		return pipes.size();
-	}
-
-	public boolean checkPipe (Flappybird bird) {
+	public boolean checkPipeCollision (Flappybird bird) {
 		boolean b = false;
 		for (Pipe pipe : pipes) {
 			if ((bird.turnToRectangle()).intersects(pipe.turnBottomPipeToRectangle()) || (bird.turnToRectangle()).intersects(pipe.turnTopPipeToRectangle())) {
@@ -54,5 +39,4 @@ public class ArrayListPipes {
 		
 		return b;
 	}
-
 }
