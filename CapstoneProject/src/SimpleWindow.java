@@ -118,18 +118,12 @@ public class SimpleWindow extends JPanel implements KeyListener {
 
 		String coinString = "Coin: " + coin;
 		g.setColor(Color.GREEN);
-<<<<<<< Updated upstream
+
 		
 		String coinString1 = "Score: " + coin;
 		g.setColor(Color.RED);
 		g.drawString(coinString1, 10, 50);
-=======
 
-		String coinString = "Score: " + coin;
-		g.setColor(Color.RED);
-
-		g.drawString(coinString, 10, 50);
->>>>>>> Stashed changes
 		
 		if (gameOver) {
 			g.setColor(Color.BLUE);
