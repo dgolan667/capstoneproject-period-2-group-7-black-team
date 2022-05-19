@@ -31,12 +31,12 @@ public class ArrayListPipes {
         
         // More moving obstacles appear when the player passes more pipes
     	for (int j = 0; j < 500; j++) {
-    		movingTopPipes.add(new Pipe(x1, 0, 50, (int)(Math.random()*180)));
+    		movingTopPipes.add(new Pipe(x1, 0, 50, (int)(Math.random()*100)));
     		x1 += (int)(10* Math.random())* space/2;
     	}
     	
     	for (int k = 0; k < 500; k++) {
-    		movingBottomPipes.add(new Pipe(x2, 0, 50, (int)(Math.random()*180)));
+    		movingBottomPipes.add(new Pipe(x2, 0, 50, (int)(Math.random()*100)));
     		x2 += (int)(10* Math.random())* space/2;
     	}
     	
@@ -72,21 +72,21 @@ public class ArrayListPipes {
 
 		for (int i = 0; i < movingTopPipes.size(); i++) {
 	    	movingTopPipes.get(i).move();
-	    	if (movingTopPipes.get(i).getX() < 600) {
+	    	if (movingTopPipes.get(i).getX() < 500) {
 				movingTopPipes.get(i).moveDown();
 	    	}
 		}
     	
 		for (int i = 0; i < movingBottomPipes.size(); i++) {
 	    	movingBottomPipes.get(i).move();
-	    	if (movingBottomPipes.get(i).getX() < 600) {
+	    	if (movingBottomPipes.get(i).getX() < 500) {
 				movingBottomPipes.get(i).moveUp();
 	    	}
         }	
 		
 		for (int i = 0; i < movingHorizontalPipes.size(); i++) {
 			movingHorizontalPipes.get(i).move();
-	    	if (movingHorizontalPipes.get(i).getX() < 600) {
+	    	if (movingHorizontalPipes.get(i).getX() < 500) {
 	    		movingHorizontalPipes.get(i).moveLeft();
 	    	}
         }
@@ -108,7 +108,7 @@ public class ArrayListPipes {
 		}
 		
 		for (Pipe pipe : movingBottomPipes) {
-			if ((bird.turnToRectangle()).intersects(pipe.turnBottomPipeToRectangle())) {
+			if ((bird.turnToRectangle()).intersects(pipe.turnMovingBottomPipeToRectangle())) {
 				b = true;
 			}
 		}
@@ -123,12 +123,10 @@ public class ArrayListPipes {
 	}
 	
 	public boolean checkWin() {
-		if (pipes.get(pipes.size() - 1).getX() == 800) {
-			return true;
+		boolean b = false;
+		if (pipes.get(pipes.size() - 1).getX() <= 800) {
+			b = true;
 		}
-		
-		else {
-			return false;
-		}
+		return b;
 	}
 }

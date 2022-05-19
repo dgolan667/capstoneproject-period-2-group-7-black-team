@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class Pipe {
-	private int x, y1, y2, h1, h2;
+	private int x, y1, y2, h1, h2, yMBP, hMBP;  // MBP: moving bottom pipes
 	private int gap = 240;
 	private int pipeVel = -2;
 	private final int w = 50;
@@ -13,6 +13,10 @@ public class Pipe {
 		this.h1 = h;
 		y2 = h1 + gap;
 		h2 = 600 - y2;
+		
+		// y and height values uses different algorithms for moving bottom pipes
+		hMBP = h; 
+		yMBP = 600 - hMBP;
 	}
 	
 	public void draw (Graphics g) {
@@ -20,13 +24,13 @@ public class Pipe {
 		g.fillRect(x, y1, w, h1);
 		g.fillRect(x, y2, w, h2);
 	}
-
+	
 	public void drawTopPipe (Graphics g) {
 		g.fillRect(x, y1, w, h1);
 	}
 	
 	public void drawBottomPipe (Graphics g) {
-		g.fillRect(x, y2, w, h2);
+		g.fillRect(x, yMBP, w, hMBP);
 	}
 	
 	public void move () {
@@ -34,7 +38,7 @@ public class Pipe {
 	}
 	
 	public void moveUp () {
-		y2 -= 1;
+		yMBP -= 1;
 	}
 	
 	public void moveDown () {
@@ -55,5 +59,9 @@ public class Pipe {
 	
 	public Rectangle turnBottomPipeToRectangle() {
 		return new Rectangle(x, y2, w, h2);
+	}
+	
+	public Rectangle turnMovingBottomPipeToRectangle() {
+		return new Rectangle(x, yMBP, w, hMBP);
 	}
 }
