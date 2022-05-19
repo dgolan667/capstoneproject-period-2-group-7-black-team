@@ -57,29 +57,54 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		this.m = m;
 		
 		double i = Math.random();
-		if (i < 0.2) {
+		if (i < 0.1) {
 			character = "bird.png";
 			backgroundName = "sea.png";
 		}
 		
-		else if (i >= 0.2 && i < 0.4) {
+		else if (i >= 0.1 && i < 0.2) {
 			character = "bluebird.png";
 			backgroundName = "forest.png";
 		}
 		
-		else if (i >= 0.4 && i < 0.6) {
+		else if (i >= 0.2 && i < 0.3) {
 			character = "dog.png";
 			backgroundName = "city.png";
 		}
 		
-		else if (i >= 0.6 && i < 0.8) {
+		else if (i >= 0.3 && i < 0.4) {
 			character = "ghost.png";
 			backgroundName = "night.png";
-		}
+		} 
 		
-		else if (i > 0.8) {
+		else if (i >= 0.4 && i < 0.5) {
+			character = "character.png";
+			backgroundName = "grass.png";
+		} 
+		
+		else if (i >= 0.5 && i < 0.6) {
 			character = "camel.png";
 			backgroundName = "desert.png";
+		} 
+		
+		else if (i >= 0.6 && i < 0.7) {
+			character = "amongus.png";
+			backgroundName = "space.png";
+		} 
+		
+		else if (i >= 0.7 && i < 0.8) {
+			character = "mario.png";
+			backgroundName = "trees.png";
+		} 
+		
+		else if (i >= 0.8 && i < 0.9) {
+			character = "spongebob.png";
+			backgroundName = "spongebob2.png";
+		} 
+		
+		else if (i > 0.9) {
+			character = "superman.png";
+			backgroundName = "superman2.png";
 		} 
 
 		bird = new Flappybird(character, 100, 250);
@@ -115,12 +140,15 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		Font currentFont = g.getFont();
 		Font newFont = currentFont.deriveFont(currentFont.getSize() * 4.0F);
         g.setFont(newFont);
+
 		String coinString = "Coin: " + coin;
 		g.setColor(Color.GREEN);
+
 		
 		String coinString1 = "Score: " + coin;
-		g.setColor(Color.RED);
+		g.setColor(Color.WHITE);
 		g.drawString(coinString1, 10, 50);
+
 		
 		if (gameOver) {
 			g.setColor(Color.BLUE);
