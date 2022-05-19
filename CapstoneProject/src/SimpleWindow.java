@@ -130,6 +130,9 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			g.drawString("FLYING TIME: " + elapsedTime + " s", WIDTH/4, HEIGHT/2);
 			
 			g.drawString("SCORE: " + coin, WIDTH/4, HEIGHT/4);
+			
+			
+			
 		}
 		
 	}
@@ -263,7 +266,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		JButton restartButton = new JButton("Restart");
 		restartButton.setBackground(Color.ORANGE);
 		restartButton.setBounds(370,320,90,50);
-		this.add(restartButton);
+		this.add(restartButton); 
 		restartButton.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
 				System.out.print("Restart");
@@ -314,19 +317,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
-	}
-
-	public void SimpleWindow () {
-		
-		bird = new Flappybird(100,250);
-	    background = new Sprite ("background.png",0,0,800,600);
-		pipes = new ArrayListPipes ();
-		started = true;
-		running = true;
-		gameOver = true;
-		
-		
-		start();
 	}
 
 }

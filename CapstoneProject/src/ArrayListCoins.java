@@ -15,7 +15,7 @@ public class ArrayListCoins {
     	for (int i = 0; i < 200; i++) { 
     		coins.add(new Coin(x, y));
     		// the coins will randomly appear between two pairs of pipes.
-    		x += 300 *(int)(10*Math.random());
+    		x += 200 *(int)(10*Math.random());
     		y += (int)(180* Math.random());
     	}
     }

@@ -11,7 +11,7 @@ public class ArrayListPipes {
     	
     	int x = 600;
     	for (int i = 0; i < 500; i++) { // modify later as the number of pipes might be changed
-    		pipes.add(new Pipe(x, 0, 50, (int)(Math.random()*420)));
+    		pipes.add(new Pipe(x, 0, 50, (int)(Math.random()*200)));
     		x += 300;
     	}
     }
@@ -28,7 +28,7 @@ public class ArrayListPipes {
 			pipes.get(i).move();
 		}
 		
-		pipes.get((int)Math.random()*10).moveVertically();
+		pipes.get((int)Math.random()*100).moveVertically();
 	}
 
 	public boolean checkPipeCollision (Flappybird bird) {
