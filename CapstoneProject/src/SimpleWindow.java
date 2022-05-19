@@ -3,15 +3,13 @@ import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
-import java.awt.event.ActionListener;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
+
 
 
 import javax.swing.JFrame;
@@ -36,6 +34,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
     // private Rectangle restart;
 	// private Rectangle quit;
 	private ScreenMain newStart;
+	
     
     
     private long startTime = 0L;
@@ -154,6 +153,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			g.drawString("FLYING TIME: " + elapsedTime + " s", WIDTH/4, HEIGHT/2);
 			
 			g.drawString("SCORE: " + coin, WIDTH/4, HEIGHT/4);	
+			
 		}
 		
 		if (pipes.checkWin()) {
@@ -311,25 +311,14 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		JButton exitButton = new JButton("Exit");
 		exitButton.setBackground(Color.GREEN);
 		exitButton.setBounds(280,320,90,50);
-		this.add(exitButton);		
+		this.add(exitButton);	
+		exitButton.setVisible(true);
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
 				//System.out.print("Exit");
 				System.exit(0);
 			}
 		});		
-		
-		/*JButton CharacterButton = new JButton("Character");
-		CharacterButton.setBackground(Color.WHITE);
-		CharacterButton.setBounds(460,320,90,50);
-		this.add(CharacterButton);
-		CharacterButton.addActionListener(new ActionListener() {
-			public void actionPerformed (ActionEvent e) {
-				System.out.print("Character");
-		
-				//character.chooseCharacter();
-			}
-		});*/
 		repaint();
 	}
 	
@@ -348,5 +337,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		// TODO Auto-generated method stub
 		
 	}
+
+		
 
 }
