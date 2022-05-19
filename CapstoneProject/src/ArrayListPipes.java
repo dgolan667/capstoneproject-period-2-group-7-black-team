@@ -57,7 +57,7 @@ public class ArrayListPipes {
 		for (int i = 0; i < pipes.size(); i++) {
 			pipes.get(i).move();
 		}
-		
+
 		for (int i = 0; i < movingTopPipes.size(); i++) {
 	    	movingTopPipes.get(i).move();
 	    	if (movingTopPipes.get(i).getX() < 600) {

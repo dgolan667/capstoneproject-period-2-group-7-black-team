@@ -2,11 +2,12 @@ import java.awt.*;
 
 public class Pipe {
 	private int x, y1, y2, h1, h2;
-	private int gap = 200;
+	private int gap = 240;
 	private int pipeVel = -2;
 	private final int w = 50;
 	
 	public Pipe (int x, int y, int w, int h) {
+		gap += (int)(Math.random()*100);
 		this.x = x;
 		y1 = y;
 		w = 50; 
