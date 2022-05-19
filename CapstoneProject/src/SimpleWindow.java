@@ -315,7 +315,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		exitButton.setVisible(true);
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
-				System.out.print("Exit");
+				//System.out.print("Exit");
 				System.exit(0);
 			}
 		});		
