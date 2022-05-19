@@ -10,12 +10,11 @@ public class ArrayListCoins {
     	coins = new ArrayList <Coin> ();
     	
     	int x = 750;
-    	int y = 210;
+    	int y = (int)(600* Math.random());
     	for (int i = 0; i < 200; i++) { 
     		coins.add(new Coin(x, y));
-    		// the coins will randomly appear (need to fixed)
-    		x += 200 *(int)(10*Math.random());
-    		y += (int)(180* Math.random());
+    		x += 20 *(int)(10*Math.random());
+    		y = (int)(600* Math.random());
     	}
     }
 
