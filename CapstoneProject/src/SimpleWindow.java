@@ -146,7 +146,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 
 		
 		String coinString1 = "Score: " + coin;
-		g.setColor(Color.WHITE);
+		g.setColor(Color.RED);
 		g.drawString(coinString1, 10, 50);
 
 		
