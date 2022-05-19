@@ -316,7 +316,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 				System.exit(0);
 			}
 		});		
-		
+		repaint();
 	}
 	
 	
