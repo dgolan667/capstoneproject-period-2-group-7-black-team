@@ -300,7 +300,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 				System.out.print("Restart");
 				
 				//newStart = new ScreenMain(TOOL_TIP_TEXT_KEY);
-				newStart = new ScreenMain(TOOL_TIP_TEXT_KEY);
+				newStart = new ScreenMain("Flappybird");
 			}
 		});
 		
