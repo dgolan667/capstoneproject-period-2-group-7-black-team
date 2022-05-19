@@ -3,20 +3,22 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class ArrayListPipes {
-    private ArrayList <Pipe> pipes, movingTopPipes, movingBottomPipes;
+    private ArrayList <Pipe> pipes, movingTopPipes, movingBottomPipes, movingHorizontalPipes;
     private int space = 500;
     private int x0 = 600;  // x-coordinate for the first pair of pipes
     private int x1 = x0 + 2500 + space/2;   // x-coordinate for the first pair of top moving pipes (starting from the 5th pair)
     private int x2 = x0 + 2500 + 3*space/2;  //  x-coordinate for the first pair of bottom moving pipes (starting from the 6th pair)
+    private int x3 = x0 + 5000 + space/2;   //  x-coordinate for the first pair of horizontal moving pipes (starting from the 10th pair)
     public ArrayListPipes() {
     	super();
     	pipes = new ArrayList <Pipe> ();
     	movingTopPipes = new ArrayList <Pipe> ();
     	movingBottomPipes = new ArrayList <Pipe> ();
+    	movingHorizontalPipes = new ArrayList <Pipe> ();
     	
     	int i = 0;
     	for (i = 0; i < 500; i++) { // modify later as the number of pipes might be changed
-    		pipes.add(new Pipe(x0, 0, 50, (int)(Math.random()*420)));
+    		pipes.add(new Pipe(x0, 0, 50, (int)(Math.random()*360)));
     		x0 += space;
     	}
     	
@@ -26,15 +28,21 @@ public class ArrayListPipes {
         if (i > 0 && i%5 == 0) {
         	space -= 5;
         }
-    	
-    	for (int j = 0; j < 100; j++) {
-    		movingTopPipes.add(new Pipe(x1, 0, 50, (int)(Math.random()*420)));
+        
+        // More moving obstacles appear when the player passes more pipes
+    	for (int j = 0; j < 500; j++) {
+    		movingTopPipes.add(new Pipe(x1, 0, 50, (int)(Math.random()*180)));
     		x1 += (int)(10* Math.random())* space/2;
     	}
     	
-    	for (int k = 0; k < 100; k++) {
-    		movingBottomPipes.add(new Pipe(x2, 0, 50, (int)(Math.random()*420)));
+    	for (int k = 0; k < 500; k++) {
+    		movingBottomPipes.add(new Pipe(x2, 0, 50, (int)(Math.random()*180)));
     		x2 += (int)(10* Math.random())* space/2;
+    	}
+    	
+    	for (int l = 0; l < 500; l++) {
+    		movingHorizontalPipes.add(new Pipe(x3, (int)(Math.random()* 600), 50, (int)(Math.random()*200)));
+    		x3 += (int)(10* Math.random())* space/2;
     	}
     }
 
@@ -51,6 +59,10 @@ public class ArrayListPipes {
         for (int i = 0; i < movingBottomPipes.size(); i++) {
             movingBottomPipes.get(i).drawBottomPipe(g);
         }
+        
+        for (int i = 0; i < movingHorizontalPipes.size(); i++) {
+        	movingHorizontalPipes.get(i).drawTopPipe(g);
+    	}
 	}
 	
 	public void move () {
@@ -71,6 +83,13 @@ public class ArrayListPipes {
 				movingBottomPipes.get(i).moveUp();
 	    	}
         }	
+		
+		for (int i = 0; i < movingHorizontalPipes.size(); i++) {
+			movingHorizontalPipes.get(i).move();
+	    	if (movingHorizontalPipes.get(i).getX() < 600) {
+	    		movingHorizontalPipes.get(i).moveLeft();
+	    	}
+        }
 
  	}
 
@@ -93,7 +112,23 @@ public class ArrayListPipes {
 				b = true;
 			}
 		}
+		
+		for (Pipe pipe : movingHorizontalPipes) {
+			if ((bird.turnToRectangle()).intersects(pipe.turnTopPipeToRectangle())) {
+				b = true;
+			}
+		}
 			
 		return b;
+	}
+	
+	public boolean checkWin() {
+		if (pipes.get(pipes.size() - 1).getX() == 800) {
+			return true;
+		}
+		
+		else {
+			return false;
+		}
 	}
 }

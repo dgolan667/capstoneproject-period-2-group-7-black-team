@@ -7,7 +7,6 @@ public class Pipe {
 	private final int w = 50;
 	
 	public Pipe (int x, int y, int w, int h) {
-		gap += (int)(Math.random()*100);
 		this.x = x;
 		y1 = y;
 		w = 50; 
@@ -40,6 +39,10 @@ public class Pipe {
 	
 	public void moveDown () {
 		y1 += 1;
+	}
+	
+	public void moveLeft () {
+		x -= 1;
 	}
 	
 	public int getX () {

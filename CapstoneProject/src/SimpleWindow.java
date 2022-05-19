@@ -153,10 +153,12 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			g.setColor(Color.BLACK);
 			g.drawString("FLYING TIME: " + elapsedTime + " s", WIDTH/4, HEIGHT/2);
 			
-			g.drawString("SCORE: " + coin, WIDTH/4, HEIGHT/4);
-			
-			
-			
+			g.drawString("SCORE: " + coin, WIDTH/4, HEIGHT/4);	
+		}
+		
+		if (pipes.checkWin()) {
+			g.setColor(Color.ORANGE);
+			g.drawString("YOU WON!!!!!", WIDTH/4, HEIGHT/2);
 		}
 		
 	}
