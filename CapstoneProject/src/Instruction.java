@@ -30,7 +30,6 @@ public class Instruction extends JPanel implements ActionListener {
 		super();
 		this.i = i;
 		JPanel p = new JPanel(); 
-		setBackground(Color.WHITE);
 		
 		start = new JButton(" Start ");
 		start.addActionListener(this);
@@ -64,23 +63,23 @@ public class Instruction extends JPanel implements ActionListener {
 		g.setColor(Color.BLACK);
 		g.setFont(new Font("Monospaced",Font.BOLD, 30));
 		int strWidth = g.getFontMetrics().stringWidth(message1);
-		g.drawString(message1, 250, 50);
+		g.drawString(message1, 300, 70);
 		
 		g.setColor(Color.BLACK);
 		g.setFont(new Font("Monospaced",Font.BOLD, 20));
 		int strWidth1 = g.getFontMetrics().stringWidth(message2);
-		g.drawString(message2, 35, 100);
+		g.drawString(message2, 35, 130);
 		
 		g.setColor(Color.BLACK);
 		g.setFont(new Font("Monospaced",Font.BOLD, 20));
 		int strWidth2 = g.getFontMetrics().stringWidth(message3);
-		g.drawString(message3, 35, 150);
+		g.drawString(message3, 35, 180);
 		
 		
 		g.setColor(Color.BLACK);
 		g.setFont(new Font("Monospaced",Font.BOLD, 20));
 		int strWidth3 = g.getFontMetrics().stringWidth(message3);
-		g.drawString(message4, 35, 200);
+		g.drawString(message4, 35, 230);
 		
 	}
 
