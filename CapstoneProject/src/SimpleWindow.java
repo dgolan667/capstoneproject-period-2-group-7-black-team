@@ -150,7 +150,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			g.setColor(Color.BLUE);
 			g.drawString("GAME OVER", WIDTH/4, 3*HEIGHT/4);
 			
-			g.setColor(Color.BLACK);
+			g.setColor(Color.WHITE);
 			g.drawString("FLYING TIME: " + elapsedTime + " s", WIDTH/4, HEIGHT/2);
 			
 			g.drawString("SCORE: " + coin, WIDTH/4, HEIGHT/4);
