@@ -4,7 +4,6 @@ import java.util.ArrayList;
 public class ArrayListCoins {
     private ArrayList <Coin> coins;
     private boolean b;
-    
 
     public ArrayListCoins() {
     	super();
@@ -15,8 +14,8 @@ public class ArrayListCoins {
     	for (int i = 0; i < 200; i++) { 
     		coins.add(new Coin(x, y));
     		// the coins will randomly appear between two pairs of pipes.
-    		x += 300 *(int)(10*Math.random());
-    		y += (int)(180* Math.random());
+    		x += 100 *(int)(10*Math.random());
+    		y += (int)(200* Math.random());
     	}
     }
 

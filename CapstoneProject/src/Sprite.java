@@ -55,7 +55,7 @@ public class Sprite {
 	}
 	
 	public void jump() {
-		yVel = -100;
+		yVel = -80;
 	    this.y += yVel;
 	}
 		

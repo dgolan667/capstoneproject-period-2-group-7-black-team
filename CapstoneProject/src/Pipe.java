@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Pipe {
 	private int x, y1, y2, h1, h2;
-	private int gap = 180;
+	private int gap = 200;
 	private int pipeVel = -2;
 	private final int w = 50;
 	
@@ -21,26 +21,28 @@ public class Pipe {
 		g.fillRect(x, y2, w, h2);
 	}
 
+	public void drawTopPipe (Graphics g) {
+		g.fillRect(x, y1, w, h1);
+	}
+	
+	public void drawBottomPipe (Graphics g) {
+		g.fillRect(x, y2, w, h2);
+	}
+	
 	public void move () {
 		x += pipeVel;
 	}
 	
-	public void moveVertically () {
-	    if (h1 < 420) {
-			h1 += 1;
-	    }
-	    
-	    else {
-	    	h1 -= 1;
-	    }
-
-	    if (y2 > 180) {
-			y2 -= 1;
-	    }
-	    
-	    else {
-	    	h2 += 1;
-	    }
+	public void moveUp () {
+		y2 -= 1;
+	}
+	
+	public void moveDown () {
+		y1 += 1;
+	}
+	
+	public int getX () {
+		return x;
 	}
 	
 	public Rectangle turnTopPipeToRectangle() {

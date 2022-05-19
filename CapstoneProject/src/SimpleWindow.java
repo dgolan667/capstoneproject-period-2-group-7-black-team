@@ -141,10 +141,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		Font newFont = currentFont.deriveFont(currentFont.getSize() * 4.0F);
         g.setFont(newFont);
 
-		String coinString = "Coin: " + coin;
-		g.setColor(Color.GREEN);
-
-		
 		String coinString1 = "Score: " + coin;
 		g.setColor(Color.RED);
 		g.drawString(coinString1, 10, 50);
@@ -234,10 +230,11 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	public void update(boolean started) {
 		if (started == true) {
 			bird.act();	
-			pipes.move();
+			pipes.move();	
 			coins.move();
 		}
 
+		
 		// collision check
 		boolean collision = doesBirdCollidePipe();
 		if (isBirdInsideWindow() == true || collision == true) {
