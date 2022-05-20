@@ -21,6 +21,7 @@ public class ArrayListCoins {
     
 	public void drawCoins(Graphics g) {
         for (int i = 0; i < coins.size(); i++) {
+        	
         	coins.get(i).drawCoin(g);
         }
 	}
@@ -31,11 +32,12 @@ public class ArrayListCoins {
 		}
 	}
 
-	public boolean checkCoinCollision (Flappybird bird) {
+	public boolean checkCoinCollision (Jumper bird) {
 		b = false;
 		for (Coin coin : coins) {
 			if ((bird.turnToRectangle()).intersects(coin.turnCoinToRectangle())) {
 				b = true;
+				coin.moveDown();
 			}
 		}
 		

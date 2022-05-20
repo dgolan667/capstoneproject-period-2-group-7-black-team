@@ -21,7 +21,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	public static final int HEIGHT = 600;
 	//private static ScreenMain main;
     private int coin;
-    private Flappybird bird;
+    private Jumper jumper;
     private ArrayListPipes pipes;
     private ArrayListCoins coins;
     private Sprite background; 
@@ -106,7 +106,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			backgroundName = "superman2.png";
 		} 
 
-		bird = new Flappybird(character, 100, 250);
+		jumper = new Jumper(character, 100, 250);
 	    background = new Sprite (backgroundName, 0, 0, 800, 600);
 		pipes = new ArrayListPipes ();
 		coins = new ArrayListCoins ();
@@ -131,7 +131,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		((Graphics2D)g).scale(ratioX,ratioY);
 		
 		background.draw(g, this);
-		bird.draw(g,this);
+		jumper.draw(g,this);
 		pipes.drawPipes(g);
 		coins.drawCoins(g);
 		
@@ -168,7 +168,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	}
 	
 	public boolean isBirdInsideWindow() {
-		if (bird.getY() < 0 || bird.getY() > 540) {
+		if (jumper.getY() < 0 || jumper.getY() > 540) {
 			return true;
 		}
 		
@@ -178,14 +178,14 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	}
 	
 	public boolean doesBirdCollidePipe() {	
-		boolean b = pipes.checkPipeCollision(bird);
+		boolean b = pipes.checkPipeCollision(jumper);
 		return b;
 		
 	}
 	
 	public boolean doesBirdCollideCoin()
 	{
-		boolean b = coins.checkCoinCollision(bird);
+		boolean b = coins.checkCoinCollision(jumper);
 		return b;
 	}
 	
@@ -216,7 +216,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
     	if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_SPACE) {
 			if (started == false)
 				started = true;
-			bird.jump();
+			jumper.jump();
 		}
     }
     
@@ -238,7 +238,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	
 	public void update(boolean started) {
 		if (started == true) {
-			bird.act();	
+			jumper.act();	
 			pipes.move();	
 			coins.move();
 		}
@@ -258,7 +258,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	
 	public void gameLoop() {
 
-		System.out.print("run");
 		startTime = System.currentTimeMillis();
 		while( running ) {
 			update(started);
@@ -274,9 +273,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	}
 	
 	
-	/*public void restart() {
-		SimpleWindow(ScreenMain m);
-	}*/
 	
 	public void DrawRect(Graphics g) {
 		
@@ -300,9 +296,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		this.add(restartButton); 
 		restartButton.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
-				System.out.print("Restart");
-				
-				//newStart = new ScreenMain(TOOL_TIP_TEXT_KEY);
 				newStart = new ScreenMain("Flappybird");
 			}
 		});
@@ -316,7 +309,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		exitButton.setVisible(true);
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
-				//System.out.print("Exit");
 				System.exit(0);
 			}
 		});		

@@ -7,10 +7,12 @@ public class Coin {
 	private final int h = 50;
 	private int speed = -2;
 	
+	
 	// CONSTRUCTORS
 	public Coin (int x, int y) {
 		this.x = x;
 		this.y = y;
+		
 	}
 	
 	// METHODS
@@ -31,4 +33,10 @@ public class Coin {
 	public Rectangle turnCoinToRectangle () {
 		return new Rectangle(x, y, w, h);
 	}
+	
+	public void moveDown() {
+		y = 800;
+	}
+	
+	
 }
