@@ -6,11 +6,13 @@ public class Coin {
 	private final int w = 50;
 	private final int h = 50;
 	private int speed = -2;
+	private boolean view;
 	
 	// CONSTRUCTORS
 	public Coin (int x, int y) {
 		this.x = x;
 		this.y = y;
+		view = true;
 	}
 	
 	// METHODS
@@ -31,4 +33,10 @@ public class Coin {
 	public Rectangle turnCoinToRectangle () {
 		return new Rectangle(x, y, w, h);
 	}
+	
+	public void moveDown() {
+		y = 800;
+	}
+	
+	
 }

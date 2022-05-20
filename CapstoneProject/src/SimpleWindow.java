@@ -257,7 +257,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	
 	public void gameLoop() {
 
-		System.out.print("run");
 		startTime = System.currentTimeMillis();
 		while( running ) {
 			update(started);
@@ -273,9 +272,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	}
 	
 	
-	/*public void restart() {
-		SimpleWindow(ScreenMain m);
-	}*/
 	
 	public void DrawRect(Graphics g) {
 		
@@ -299,9 +295,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		this.add(restartButton); 
 		restartButton.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
-				System.out.print("Restart");
-				
-				//newStart = new ScreenMain(TOOL_TIP_TEXT_KEY);
 				newStart = new ScreenMain("Flappybird");
 			}
 		});
@@ -315,7 +308,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		exitButton.setVisible(true);
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
-				//System.out.print("Exit");
 				System.exit(0);
 			}
 		});		
