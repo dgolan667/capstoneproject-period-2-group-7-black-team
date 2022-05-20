@@ -93,7 +93,7 @@ public class ArrayListPipes {
 
  	}
 
-	public boolean checkPipeCollision (Flappybird bird) {
+	public boolean checkPipeCollision (Jumper bird) {
 		boolean b = false;
 		for (Pipe pipe : pipes) {
 			if ((bird.turnToRectangle()).intersects(pipe.turnBottomPipeToRectangle()) || (bird.turnToRectangle()).intersects(pipe.turnTopPipeToRectangle())) {

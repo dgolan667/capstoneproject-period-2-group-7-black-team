@@ -32,7 +32,7 @@ public class ArrayListCoins {
 		}
 	}
 
-	public boolean checkCoinCollision (Flappybird bird) {
+	public boolean checkCoinCollision (Jumper bird) {
 		b = false;
 		for (Coin coin : coins) {
 			if ((bird.turnToRectangle()).intersects(coin.turnCoinToRectangle())) {
