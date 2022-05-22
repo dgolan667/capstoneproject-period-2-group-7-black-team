@@ -8,10 +8,6 @@ import java.util.List;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
-
-
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -25,14 +21,12 @@ public class SimpleWindow extends JPanel implements KeyListener {
     private ArrayListPipes pipes;
     private ArrayListCoins coins;
     private Sprite background; 
-    private ScreenMain m;
     private Thread gameThread;
     private boolean started = false;
     private boolean running = false;
     private boolean gameOver = false;
     private String character, backgroundName;
-	private ScreenMain newStart;
-
+	private ScreenMain m, newStart;
     private long startTime = 0L;
     private long endTime = 0L;
     private float elapsedTime;
@@ -108,8 +102,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		pipes = new ArrayListPipes ();
 		coins = new ArrayListCoins ();
 		started = false;
-		running = false;
-		
+		running = false;		
 		
 		start();
 	}
@@ -137,28 +130,30 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		Font newFont = currentFont.deriveFont(currentFont.getSize() * 4.0F);
         g.setFont(newFont);
 
-		String coinString1 = "Score: " + coin;
-		g.setColor(Color.RED);
-		g.drawString(coinString1, 10, 50);
+		String score = "Score: " + coin;
+		g.setColor(Color.ORANGE);
+		g.drawString(score, 10, 50);
 
 		
 		if (gameOver) {
 			g.setColor(Color.BLUE);
-			g.drawString("GAME OVER", WIDTH/4, 3*HEIGHT/4);
+			g.drawString("GAME OVER", WIDTH/4, HEIGHT/2);
 			
 			g.setColor(Color.WHITE);
-			g.drawString("FLYING TIME: " + elapsedTime + " s", WIDTH/4, HEIGHT/2);
+			g.drawString("FLYING TIME: " + elapsedTime + " s", WIDTH/4, HEIGHT/6);
 			
-			g.drawString("SCORE: " + coin, WIDTH/4, HEIGHT/4);
-			
+			g.drawString("SCORE: " + coin, WIDTH/4, HEIGHT/3); 
 		}
 		
 		if (pipes.checkWin()) {
 			g.setColor(Color.ORANGE);
-			g.drawString("YOU WON!!!!!", WIDTH/4, HEIGHT/2);
+			g.drawString("YOU WON!!!!!", WIDTH/4, HEIGHT/4);
+			
             g.drawString("FLYING TIME: " + elapsedTime + " s", WIDTH/4, HEIGHT/2);
 			
-			g.drawString("SCORE: " + coin, WIDTH/4, HEIGHT/4);	
+			g.drawString("SCORE: " + coin, WIDTH/4, 3* HEIGHT/4);	
+			
+		    gameStop(); 
 		}
 		
 		
@@ -248,30 +243,33 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	public void gameEnd() {
 		gameOver = true;
 		elapsedTime = (endTime - startTime)/1000F;		
+
+		if (pipes.checkWin() == false) {
+			JButton restartButton = new JButton("Restart");
+			restartButton.setBackground(Color.ORANGE);
+			restartButton.setBounds(WIDTH/4, 7*HEIGHT/12, 200, 100);
+			restartButton.addActionListener(new ActionListener() {
+				public void actionPerformed (ActionEvent e) {
+					newStart = new ScreenMain("Flappybird");
+				}
+			});
+			
 		
-		JButton restartButton = new JButton("Restart");
-		restartButton.setBackground(Color.ORANGE);
-		restartButton.setBounds(370,320,90,50);
-		this.add(restartButton); 
-		restartButton.addActionListener(new ActionListener() {
-			public void actionPerformed (ActionEvent e) {
-				newStart = new ScreenMain("Flappybird");
-			}
-		});
-		
-	
-		
-		JButton exitButton = new JButton("Exit");
-		exitButton.setBackground(Color.GREEN);
-		exitButton.setBounds(280,320,90,50);
-		this.add(exitButton);	
-		exitButton.setVisible(true);
-		exitButton.addActionListener(new ActionListener() {
-			public void actionPerformed (ActionEvent e) {
-				System.exit(0);
-			}
-		});		
-		repaint();
+			JButton exitButton = new JButton("Exit");
+			exitButton.setBackground(Color.GREEN);
+			exitButton.setBounds(WIDTH/4 + 200, 7*HEIGHT/12, 200, 100);
+			exitButton.setVisible(true);
+			exitButton.addActionListener(new ActionListener() {
+				public void actionPerformed (ActionEvent e) {
+					System.exit(0);
+				}
+			});		
+			
+			add(restartButton);
+			add(exitButton);
+			repaint();
+		}
+
 	}
 
 	@Override

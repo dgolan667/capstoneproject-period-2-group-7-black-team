@@ -77,8 +77,5 @@ public class Instruction extends JPanel implements ActionListener {
 		}
 		
 	}
-
-
-
 }
 
