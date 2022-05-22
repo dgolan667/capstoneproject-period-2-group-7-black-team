@@ -118,7 +118,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);  // Call JPanel's paintComponent method to paint the background
-
+		
 		int width = getWidth();
 		int height = getHeight(); 
 		
@@ -149,7 +149,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			g.setColor(Color.WHITE);
 			g.drawString("FLYING TIME: " + elapsedTime + " s", WIDTH/4, HEIGHT/2);
 			
-			g.drawString("SCORE: " + coin, WIDTH/4, HEIGHT/4);	
+			g.drawString("SCORE: " + coin, WIDTH/4, HEIGHT/4);
 			
 		}
 		
@@ -160,6 +160,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			
 			g.drawString("SCORE: " + coin, WIDTH/4, HEIGHT/4);	
 		}
+		
 		
 	}
 	
