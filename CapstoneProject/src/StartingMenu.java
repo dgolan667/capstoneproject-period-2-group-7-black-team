@@ -8,12 +8,10 @@ public class StartingMenu extends JPanel implements ActionListener {
 	private ScreenMain a;
 	private JButton button, instructions; 
 	
-		public StartingMenu(ScreenMain a) {
-			
+		public StartingMenu(ScreenMain a) {		
 			this.a = a;
 			JPanel p = new JPanel();
-			
-			
+					
 			p.setLayout(new BoxLayout(p,BoxLayout.Y_AXIS));
 			p.add(Box.createVerticalStrut(300));
 			
@@ -27,10 +25,7 @@ public class StartingMenu extends JPanel implements ActionListener {
 			p.add(instructions);
 			
 		}
-		
 
-		
-	
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == button) {
 				a.changePanel("2");
@@ -38,9 +33,4 @@ public class StartingMenu extends JPanel implements ActionListener {
 				a.changePanel("3");
 			}
 		}
-		
-		public void restart() {
-			
-		}
-
 }

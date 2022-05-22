@@ -34,8 +34,6 @@ public class Jumper extends Sprite {
 		accelerate(0,0.2);
 		super.act();	
 	}
-	
-		
 
 	public Rectangle turnToRectangle () {
 		return new Rectangle(super.getX(), super.getY(), super.getWidth(), super.getHeight());

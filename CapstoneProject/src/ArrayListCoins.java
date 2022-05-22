@@ -11,9 +11,9 @@ public class ArrayListCoins {
     	
     	int x = 750;
     	int y = (int)(600* Math.random());
-    	for (int i = 0; i < 200; i++) { 
+    	for (int i = 0; i < 500; i++) { 
     		coins.add(new Coin(x, y));
-    		x += 20 *(int)(10*Math.random());
+    		x += 100 *(int)(10*Math.random());
     		y = (int)(600* Math.random());
     	}
     }

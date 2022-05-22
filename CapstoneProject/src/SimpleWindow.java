@@ -31,12 +31,8 @@ public class SimpleWindow extends JPanel implements KeyListener {
     private boolean running = false;
     private boolean gameOver = false;
     private String character, backgroundName;
-    // private Rectangle restart;
-	// private Rectangle quit;
 	private ScreenMain newStart;
-	
-    
-    
+
     private long startTime = 0L;
     private long endTime = 0L;
     private float elapsedTime;
@@ -51,6 +47,7 @@ public class SimpleWindow extends JPanel implements KeyListener {
      * spongebob.png (c) - spongebob2.png (b) 
      * superman.png (c) - superman2.png (b) 
      */
+    
 	public SimpleWindow (ScreenMain m) {
 		super();
 		this.m = m;
@@ -188,29 +185,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		return b;
 	}
 	
-    /*	
-	public static void main(String[] args) {
-		JFrame w = new JFrame("Window");
-		w.setBounds(50, 50, 800, 600);
-		w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		SimpleWindow panel = new SimpleWindow();//main
-		w.addKeyListener(panel);
-		w.add(panel);
-		w.setResizable(true);
-		w.setVisible(true);
-		panel.run(); 
-	}
-	*/
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
     public void keyPressed(KeyEvent e) {
     	if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_SPACE) {
 			if (started == false)
@@ -242,7 +216,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 			coins.move();
 		}
 
-		
 		// collision check
 		boolean collision = doesBirdCollidePipe();
 		if (isBirdInsideWindow() == true || collision == true) {
@@ -269,20 +242,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		}
 		endTime = System.currentTimeMillis();
 		gameEnd();
-	}
-	
-	
-	
-	public void DrawRect(Graphics g) {
-		
-		DrawRect(370,320,90,50);
-		
-		
-	}
-	
-	private void DrawRect(int i, int j, int k, int l) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	public void gameEnd() {
@@ -313,10 +272,6 @@ public class SimpleWindow extends JPanel implements KeyListener {
 		});		
 		repaint();
 	}
-	
-	
-	
-	
 
 	@Override
 	public void keyTyped(KeyEvent e) {

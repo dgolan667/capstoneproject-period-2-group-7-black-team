@@ -1,4 +1,3 @@
-import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
 
@@ -17,7 +16,6 @@ public class ScreenMain extends JFrame{
 	    
 		StartingMenu panel1 = new StartingMenu(this);    
 	    SimpleWindow panel2 = new SimpleWindow(this);
-	 //   Character panel3 = new Character(this);
 	    Instruction panel3 = new Instruction(this); 
 	
 	    BirdPanel.add(panel1,"1"); 
@@ -33,8 +31,7 @@ public class ScreenMain extends JFrame{
 	
 	public static void main(String[] args)
 	{
-		ScreenMain a = new ScreenMain("FlappyBird");
-		//app upper name
+		ScreenMain a = new ScreenMain("Let's Jump");
 	}
   
 	public void changePanel(String name) {

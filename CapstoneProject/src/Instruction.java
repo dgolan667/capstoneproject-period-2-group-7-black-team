@@ -1,21 +1,10 @@
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.geom.AffineTransform;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -36,14 +25,11 @@ public class Instruction extends JPanel implements ActionListener {
 		start.setBackground(Color.WHITE);
 		p.add(start);
 		add(p);
-		
-		
-		
+
 		message1 = "Instructions ";
 		message2 = "- Press the space bar to start the game";
 		message3 = "- Jump: Use the space bar or the up arrow key";
 		message4 = "- Collect coins to get points"; 
-		
 	}
 	
 	
